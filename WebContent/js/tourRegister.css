@@ -1,0 +1,724 @@
+body {
+	/*font-family: 'Do Hyeon', sans-serif;*/
+	font: 16px "Kakao", "Noto Sans KR", "나눔고딕", NanumGothic, "맑은고딕",
+		"Malgun Gothic", "돋움", Dotum, "Helvetica Neue", Helvetica,
+		AppleSDGothicNeo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+		NotoColorEmoji, "Segoe UI Symbol", "Android Emoji", EmojiSymbols;
+}
+
+#back {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, .6);
+	display: none;
+	z-index: 2;
+}
+
+#attractionRegisterBox {
+	width: 900px;
+	height: 900px;
+	background-color: white;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: -450px 0 0 -450px;
+	border-radius: 20px;
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0
+		rgba(0, 0, 0, 0.19);
+	display: none;
+	z-index: 2;
+}
+
+input, textarea {
+	font-family: 'Kakao', sans-serif;
+}
+
+#attractionRegisterBox .title {
+	width: 200px;
+	height: 50px;
+	text-align: center;
+	position: absolute;
+	font-size: 30px;
+	margin-top: 20px;
+	margin-left: 350px;
+}
+
+#attractionRegisterBox .cancel {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	font-size: 35px;
+	text-align: center;
+	right: 15px;
+	top: 15px;
+}
+
+#attractionRegisterBox .cancel:hover {
+	cursor: pointer;
+}
+
+.hiceBackground {
+	width: 300px;
+	height: 400px;
+	background-image: url(img/ice5.png);
+	background-size: 100% 100%;
+	opacity: .2;
+	position: relative;
+	left: 10px;
+	top: 230px;
+}
+
+.hiceLevel {
+	width: 300px;
+	height: 430px;
+	position: absolute;
+	left: 10px;
+	top: 200px;
+	/*background-color: pink;*/
+	/*border: 1px solid #424242;*/
+}
+
+.hiceLevel .hice5 {
+	width: 300px;
+	height: 400px;
+	position: absolute;
+	bottom: 0;
+}
+
+.hiceLevel .hice4 {
+	width: 300px;
+	height: 340px;
+	position: absolute;
+	bottom: 0;
+}
+
+.hiceLevel .hice3 {
+	width: 300px;
+	height: 293px;
+	position: absolute;
+	bottom: 0;
+}
+
+.hiceLevel .hice2 {
+	width: 300px;
+	height: 243px;
+	position: absolute;
+	bottom: 0;
+}
+
+.hiceLevel .hice1 {
+	width: 300px;
+	height: 198px;
+	position: absolute;
+	bottom: 0;
+}
+
+.hiceLevel .ice {
+	cursor: pointer;
+}
+
+.hiceLevel .ice img {
+	width: 300px;
+	display: none;
+}
+
+#evaluation {
+	width: 250px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	position: absolute;
+	bottom: 160px;
+	/*background-color: red;*/
+	left: 30px;
+}
+
+.on {
+	display: block;
+}
+
+.hiceLevel .ice img {
+	width: 300px;
+	display: none;
+}
+
+.hiceLevel .ice img.on {
+	display: block;
+}
+
+.hiceLevel .hice1:hover img {
+	display: block;
+}
+
+.hiceLevel .hice2:hover img {
+	display: block;
+}
+
+.hiceLevel .hice3:hover img {
+	display: block;
+}
+
+.hiceLevel .hice4:hover img {
+	display: block;
+}
+
+.hiceLevel .hice5:hover img {
+	display: block;
+}
+
+.form {
+	width: 570px;
+	height: 760px;
+	position: absolute;
+	top: 90px;
+	right: 30px;
+	padding-left: 20px;
+	border-left: 1px solid #424242;
+	/*background-color: green;*/
+}
+
+.form .photo {
+	width: 160px;
+	height: 140px;
+	position: absolute;
+	right: 0;
+	border: 1px solid #424242;
+	/*background-color: red;*/
+}
+
+.photoBox {
+	width: 160px;
+	height: 120px;
+	display: block;
+	/*background-color: red;*/
+	/*border-bottom: 1px solid #5D4037;*/
+}
+/* 은서 : css 추가 (.photoBox.fa-image / .photoBox.no_image #uploadImg)*/
+.photoBox.fa-image {
+	text-align: center;
+	font-size: 80px;
+	line-height: 120px;
+	background-color: #f9f2ec;
+}
+
+.photoBox.no_image #uploadImg {
+	display: none;
+}
+
+.photoBox #uploadImg {
+	position: absolute;
+	right: 0;
+}
+
+.photo input {
+	border: none;
+	color: transparent;
+}
+
+.photo p {
+	position: absolute;
+	left: 87px;
+	bottom: 0;
+}
+
+.sub {
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	font-size: 20px;
+}
+
+textarea {
+	width: 220px;
+	height: 100px;
+	resize: none;
+}
+
+.btn {
+	font-family: 'Kakao', sans-serif;
+	width: 50px;
+	height: 30px;
+	border: none;
+	background-color: #424242;
+	color: #fff;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 0;
+	font-size: 15px;
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+}
+
+.close {
+	right: 60px;
+}
+
+.register {
+	right: 0;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.attractionLocation {
+	width: 300px;
+	height: 30px;
+	line-height: 25px;
+	padding-bottom: 15px;
+	position: relative;
+	/* background-color: orange; */
+}
+
+.attractionLocation em {
+	font-size: 19px;
+}
+
+.attractionLocation input {
+	width: 190px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionLocation em, .attractionLocation input {
+	vertical-align: middle;
+}
+
+#result {
+	width: 190px;
+	position: relative;
+	background-color: #C69863;
+	margin-left: 40px;
+	overflow: auto;
+	z-index: 4;
+}
+
+#result>li {
+	width: 188px;
+	height: 40px;
+	background-color: #D7CCC8;
+	cursor: pointer;
+	line-height: 40px;
+	text-align: center;
+	border-right: 1px solid #424242;
+	border-left: 1px solid #424242;
+	border-bottom: 1px solid #424242;
+}
+
+.attractionName {
+	width: 300px;
+	height: 30px;
+	line-height: 25px;
+	padding-bottom: 15px;
+	/*background-color: red;*/
+}
+
+.attractionName em {
+	font-size: 19px;
+}
+
+.attractionName input {
+	width: 190px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionName em, .attractionName input {
+	vertical-align: middle;
+}
+
+.attractionType {
+	width: 300px;
+	height: 30px;
+	/*background-color: yellow;*/
+	padding-bottom: 15px;
+	line-height: 25px;
+}
+
+.attractionType em {
+	font-size: 19px;
+}
+
+.attractionType select {
+	width: 180px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionType em, .attractionType input {
+	vertical-align: middle;
+}
+
+.attractionAddr {
+	width: 400px;
+	height: 50px;
+	/*background-color: red;*/
+	line-height: 25px;
+	padding-bottom: 15px;
+	position: relative;
+}
+
+.attractionAddr em {
+	font-size: 19px;
+}
+
+.attractionAddr input {
+	width: 248px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionAddr .addr2 {
+	position: absolute;
+	bottom: 15px;
+	left: 37px;
+}
+
+.attractionAddr button {
+	width: 90px;
+	height: 20px;
+	border: none;
+	border-radius: 5px;
+}
+
+.attractionAddr button:hover {
+	cursor: pointer;
+}
+
+.attractionAddr em, .attractionAddr input, .attractionAddr button {
+	vertical-align: middle;
+}
+
+.mapWrap {
+	width: 900px;
+	height: 900px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin: -450px 0 0 -450px;
+	border-radius: 20px;
+	background-color: white;
+	display: none;
+	z-index: 4;
+}
+
+#map {
+	width: 700px;
+	height: 650px;
+	border-radius: 20px;
+	margin: 100px auto;
+	border: 5px solid #424242;
+	z-index: 5;
+}
+
+.controls {
+	width: 450px;
+	height: 29px;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 1px solid transparent;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+	box-sizing: border-box;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 17px;
+	margin-top: 10px;
+	outline: none;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+}
+
+.controls:focus {
+	border-color: #4d90fe;
+}
+
+#infowindow-content {
+	display: none;
+}
+
+#infowindow-content .addrBtn {
+	width: 43px;
+	height: 20px;
+	border: none;
+	/*font-family: 'Do Hyeon', sans-serif;*/
+	font-size: 15px;
+	color: #fff;
+	border-radius: 20px;
+	background-color: #D7CCC8;
+}
+
+#infowindow-content .addrBtn:hover {
+	cursor: pointer;
+	background-color: #5D4037;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #424242;
+	border-radius: 20px;
+	/*transform: scale(1.1);*/
+	/*box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+#map #infowindow-content {
+	display: inline;
+}
+
+.mapWrap .cancel {
+	width: 35px;
+	height: 35px;
+	position: absolute;
+	font-size: 35px;
+	text-align: center;
+	right: 15px;
+	top: 15px;
+}
+
+.mapWrap .cancel:hover {
+	cursor: pointer;
+}
+
+.attractionCall {
+	width: 300px;
+	height: 30px;
+	/*background-color: red;*/
+	line-height: 25px;
+	padding-bottom: 15px;
+}
+
+.attractionCall em {
+	font-size: 19px;
+}
+
+.attractionCall input {
+	width: 50px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionCall em, .attractionCall input {
+	vertical-align: middle;
+}
+
+.attractionTime {
+	width: 400px;
+	height: 30px;
+	/*background-color: yellow;*/
+	line-height: 25px;
+	padding-bottom: 15px;
+}
+
+.attractionTime em {
+	font-size: 19px;
+}
+
+.attractionTime select {
+	width: 50px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionTime em, .attractionTime select {
+	vertical-align: middle;
+}
+
+.attractionSite {
+	width: 300px;
+	height: 30px;
+	line-height: 25px;
+	padding-bottom: 15px;
+	/*background-color: red;*/
+}
+
+.attractionSite em {
+	font-size: 19px;
+}
+
+.attractionSite input {
+	width: 210px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionSite em, .attractionSite input {
+	vertical-align: middle;
+}
+
+.attractionMoney {
+	width: 300px;
+	height: 30px;
+	line-height: 25px;
+	padding-bottom: 15px;
+	/*background-color: yellow;*/
+}
+
+.attractionMoney em {
+	font-size: 19px;
+}
+
+.attractionMoney input {
+	width: 227px;
+	height: 20px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionMoney em, .attractionMoney input {
+	vertical-align: middle;
+}
+
+.attractionContent {
+	width: 400px;
+	height: 80px;
+	padding-bottom: 15px;
+	/*line-height: 75px;*/
+	/*background-color: red;*/
+}
+
+.attractionContent em {
+	font-size: 19px;
+}
+
+.attractionContent textarea {
+	width: 250px;
+	height: 60px;
+	padding-left: 5px;
+	border-radius: 5px;
+	vertical-align: top;
+	border: 1px solid #424242;
+}
+/*.attractionContent em, .attractionContent textarea {*/
+/*vertical-align: middle;*/
+/*}*/
+.attractionTheme {
+	width: 400px;
+	height: 90px;
+	line-height: 30px;
+	position: relative;
+	padding-bottom: 15px;
+	/*background-color: yellow;*/
+}
+
+.attractionTheme em {
+	font-size: 19px;
+}
+
+.attractionTheme ul {
+	width: 320px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	left: 55px;
+	/*background-color: blue;*/
+}
+
+.attractionTheme li {
+	width: 80px;
+	height: 30px;
+	float: left;
+	font-size: 16px;
+	/*background-color: red;*/
+	text-align: center;
+}
+
+.attractionTheme>span {
+	position: absolute;
+	/*line-height: 100px;*/
+	font-size: 11px;
+	left: 50px;
+	bottom: 22px;
+	color: red;
+}
+
+.attractionTheme input {
+	display: none;
+}
+
+.attractionTheme label {
+	cursor: pointer;
+}
+
+.color {
+	padding: 5px 5px 5px 5px;
+	border-radius: 50px;
+	background-color: #8D6E63;
+	text-shadow: 2px 2px 2px #424242;
+	color: white;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+}
+
+.attractionService {
+	width: 400px;
+	height: 80px;
+	line-height: 30px;
+	position: relative;
+	/*background-color: red;*/
+}
+
+.attractionService em {
+	font-size: 19px;
+}
+
+.attractionService input {
+	width: 15px;
+	height: 15px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionService .check {
+	width: 260px;
+	height: 70px;
+	position: absolute;
+	top: 0;
+	left: 100px;
+	/*background-color: orange;*/
+}
+
+.attractionSatisfaction {
+	width: 470px;
+	height: 60px;
+	line-height: 30px;
+	position: relative;
+	/*background-color: red;*/
+}
+
+.attractionSatisfaction em {
+	font-size: 19px;
+}
+
+.attractionSatisfaction input {
+	width: 15px;
+	height: 15px;
+	padding-left: 5px;
+	border-radius: 5px;
+	border: 1px solid #424242;
+}
+
+.attractionSatisfaction .check {
+	width: 370px;
+	height: 60px;
+	position: absolute;
+	top: 0;
+	left: 100px;
+	/*background-color: orange;*/
+}

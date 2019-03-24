@@ -1,0 +1,218 @@
+		body {
+            /*font-family: 'Do Hyeon', sans-serif;*/
+            font: 16px "Kakao","Noto Sans KR","나눔고딕",NanumGothic,"맑은고딕","Malgun Gothic",
+            "돋움",Dotum,"Helvetica Neue",Helvetica,AppleSDGothicNeo,sans-serif,"Apple Color Emoji",
+            "Segoe UI Emoji",NotoColorEmoji,"Segoe UI Symbol","Android Emoji",EmojiSymbols;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #back {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, .6);
+            display: none;
+            z-index: 4;
+        }
+
+        #restaurantReviewBox {
+            width: 600px;
+            height: 700px;
+            background-color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin: -350px 0 0 -300px;
+            border-radius: 20px;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+     		display: none;
+     		z-index: 4;
+        }
+
+        #restaurantReviewBox .title {
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            position: absolute;
+            margin: 20px 200px;
+        }
+
+        #restaurantReviewBox .cancel {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            font-size: 35px;
+            text-align: center;
+            right: 15px;
+            top: 15px;
+        }
+        #restaurantReviewBox .cancel:hover {
+            cursor: pointer;
+        }
+
+        .hiceBackground {
+            width: 300px;
+            height: 400px;
+            background-image: url(img/ice5.png);
+            background-size: 100% 100%;
+            opacity: .2;
+            position: absolute;
+            left: 20px;
+            bottom: 150px;
+        }
+        .hiceLevel {
+            width: 300px;
+            height: 430px;
+            position: relative;
+            left: 20px;
+            top: 120px;
+            /*background-color: pink;*/
+            /*border: 1px solid #424242;*/
+        }
+        .hiceLevel .hice5 {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hiceLevel .hice4 {
+            width: 300px;
+            height: 340px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hiceLevel .hice3 {
+            width: 300px;
+            height: 293px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hiceLevel .hice2 {
+            width: 300px;
+            height: 243px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hiceLevel .hice1 {
+            width: 300px;
+            height: 198px;
+            position: absolute;
+            bottom: 0;
+        }
+        .hiceLevel .iceReview{
+            cursor: pointer;
+        }
+        .hiceLevel .iceReview img{
+            width: 300px;
+            display: none;
+        }
+        .on {
+            display: block;
+        }
+        .hiceLevel .iceReview img{
+            width: 300px;
+            display: none;
+        }
+        .hiceLevel .iceReview img.on{
+            display: block;
+        }
+
+
+        .hiceLevel .hice1:hover img{
+            display: block;
+        }
+        .hiceLevel .hice2:hover img{
+            display: block;
+        }
+        .hiceLevel .hice3:hover img{
+            display: block;
+        }
+        .hiceLevel .hice4:hover img{
+            display: block;
+        }
+        .hiceLevel .hice5:hover img{
+            display: block;
+        }
+
+        #evaluation {
+            width: 250px;
+            height: 30px;
+            font-size: 20px;
+            text-align: center;
+            position: absolute;
+            bottom: 110px;
+            /*background-color: red;*/
+            left: 35px;
+        }
+
+        #form {
+            width: 260px;
+            height: 500px;
+            position: absolute;
+            top: 130px;
+            right: 30px;
+            border-left:1px solid #424242;
+        }
+        #form div {
+            margin-top: 20px;
+        }
+        #form p {
+            margin: 5px;
+            padding-left: 10px;
+        }
+        #form .photoPop {
+            width: 160px;
+            height: 120px;
+            border: 1px solid #424242;
+            margin: auto;
+        }
+        .photoPop .photoBoxPop {
+            width: 160px;
+            height: 120px;
+            display: block;
+            /*background-color: red;*/
+            /*border-bottom: 1px solid #5D4037;*/
+        }
+        .photoPop input{
+            margin-top: 5px;
+            border: none;
+            /*color: transparent;*/
+        }
+        .photoPop p {
+            position: absolute;
+            left: 87px;
+            bottom: 0;
+        }
+
+        .sub {
+            font-size: 22px;
+        }
+
+        #form .content {
+            margin-top: 40px;
+            /*background-color: red;*/
+        }
+        .content textarea {
+            width: 220px;
+            height: 100px;
+        }
+
+        .btnPop {
+            width: 50px;
+            height: 30px;
+            border: none;
+            background-color: #424242;
+            color: #fff;
+            border-radius: 10px;
+            position: relative;
+            left: 120px;
+        }
+        .btnPop:hover {
+            cursor: pointer;
+        }

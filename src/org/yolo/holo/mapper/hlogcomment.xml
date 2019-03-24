@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hlogcomment">
+	<select id="selectTotal" resultType="int" parameterType="int">
+		SELECT COUNT(*) 
+		FROM hlogcomment
+		WHERE no_hlog = #{noHLog}
+	</select>
+	
+	<select id="selectList" resultType="HLogComment" parameterType="PageVO">
+		SELECT no, noHLog, contents, noDounor, regdate, nickname, profile
+				FROM(SELECT no, noHLog, contents, noDounor, regdate, nickname, profile, rownum r
+			 		 FROM(SELECT c.no no, c.no_hlog noHLog, c.contents contents, c.no_dounor noDounor, c.regdate regdate, d.nickname nickname, d.profile profile
+			 	  		  FROM hlogcomment c, dounor d
+			 	  		  WHERE c.no_dounor = d.no)
+		 		 	WHERE noHLog = #{noHLog}
+					ORDER BY regdate DESC)	
+		WHERE r BETWEEN #{start} and #{end}
+	</select>
+	
+	<insert id="insert" parameterType="HLogComment">
+		INSERT INTO hlogcomment(no, no_dounor, contents, regdate, no_hlog)
+		VALUES (hlogcomment_seq.nextval, #{noDounor}, #{contents}, SYSTIMESTAMP, #{noHLog})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+      DELETE hlogcomment
+      WHERE no = #{no}
+   </delete>
+</mapper>

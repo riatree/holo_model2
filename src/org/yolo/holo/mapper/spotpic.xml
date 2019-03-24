@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spotpic">
+	
+	<!-- 수진 picname-> picName -->
+	<select id="selectSpotPicList" parameterType="int" resultType="SpotPic">
+		SELECT s.no no,s.picname picName, d.no dounorNo, d.profile profile 
+		FROM spotpic s, dounor d
+		WHERE s.no_dounor = d.no
+		AND s.no_spot = #{no}
+	</select>
+	
+	<!-- 수진 -->
+	<select id="selectPicNum" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM spotpic s
+ 		WHERE s.no_spot=#{no}
+	</select>
+	
+	<insert id="insert" parameterType="SpotPic">
+		INSERT INTO spotpic(no, picname, type, no_spot, regdate, no_dounor)
+		VALUES(spotpic_seq.nextval, #{picName}, 'K', #{noSpot}, systimestamp, #{noDounor})
+	</insert>
+</mapper>

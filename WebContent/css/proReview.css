@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+/*리뷰*/
+.proReview{
+    width: 1010px;
+    margin: auto;
+    /*background-color: #AED581;*/
+    border-left: 1px solid #424242;
+    border-right: 1px solid #424242;
+    display: none;
+}
+#reviewList{
+    width: auto;
+    /*background-color: red;*/
+    overflow: hidden;
+}
+.reviewNum{
+   display: none;
+}
+.reviewOneBox {
+    /*background-color: #673AB7;*/
+    margin: 25px 0 25px 46.66px;
+    float: left;
+    position: relative;
+    width: 433px;
+    height: 95px;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.reviewOneBox .reviewMal {
+    position: absolute;
+    left: 15px;
+}
+
+.reviewOneBox .reviewIce {
+    position: absolute;
+    left: 25px;
+    top: 10px;
+}
+.reviewHiceNum{
+   display: none;
+}
+.reviewOneBox .reviewMal img {
+    width: 70px;
+    height: 70px;
+}
+.reviewOneBox .reviewIce img {
+    width: 50px;
+    height: 45px;
+}
+
+.reviewOneBox .reviewFace {
+    position: absolute;
+    border-radius: 30px;
+    left: 5px;
+    bottom: 2px;
+}
+
+.reviewOneBox .reviewFace img {
+    border-radius: 30px;
+}
+
+.reviewOneBox .reviewNick {
+    width: 65px;
+    padding: 5px 5px;
+    position: absolute;
+    left: 35px;
+    bottom: 4px;
+    font-size: 13px;
+    /*background-color: #FFC107;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*background-color: #9E9D24;*/
+}
+
+.reviewOneBox .reviewDay {
+    padding: 5px 5px;
+    position: absolute;
+    right: 80px;
+    bottom: 4px;
+    font-size: 14px;
+    /*background-color: #64FFDA;*/
+}
+
+.reviewOneBox .reviewContent {
+    position: absolute;
+    width: 300px;
+    left: 90px;
+    top: 16px;
+    font-size: 14px;
+    /*background-color: #673AB7;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word;
+    line-height: 1.5em;
+    height: 3.0em;
+}
+.reviewSiren{
+    position: absolute;
+    border: none;
+    outline: 0;
+    top: 5px;
+    right:0px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.reviewOneBox .reviewHeart {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+}
+.reviewOneBox .reviewPic {
+    cursor: pointer;
+    position: absolute;
+    width: 27px;
+    height: 30px;
+    font-size: 20px;
+    /*background-color: #673AB7;*/
+    right: 35px;
+    bottom: 0;
+    color: #525252;
+}
+.reviewOneBox .reviewLocation{
+    cursor: pointer;
+    position: absolute;
+    height: 20px;
+    bottom: 5px;
+    left: 120px;
+    font-size: 10px;
+    border: 2px solid #424242;
+    border-radius: 10px;
+    border-color: #880E4F;
+    background-color: #F48FB1;
+    color: #FFF;
+    line-height: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-decoration: none;
+    
+}
+
+#emptyReviewListBox{
+   height: 300px;
+}
+
+#emptyReviewList{
+   text-align: center;
+   font-size: 50px;
+   line-height: 260px;
+}

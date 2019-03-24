@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+        #loginform{
+            width: 500px;
+            height: 480px;
+            border: 1px solid #424242;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+                        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -300px 0 0 -250px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #fff;
+            display: none;
+            z-index:3;
+        }
+        #loginTitle{
+            font-size: 25px;
+            text-align: center;
+        }
+        #loginBox{
+            width: 370px;
+            height: 100px;
+            margin: auto;
+            margin-top: 30px;
+        }
+        #loginList {
+            width: 250px;
+            height: 100px;
+            float: left;
+           /*  border: 1px solid #9E9D24; */
+        }
+        #loginIdBox {
+            width: 250px;
+            height: 38px;
+            float: left;
+            /*border: 1px solid#424242;*/
+            margin-bottom: 20px;
+        }
+        #loginIdInput{
+        	 position: absolute;
+        	height: 33px;
+            margin-left: 10px;
+        }
+        #loginPasswordBox {
+            width: 250px;
+            height: 38px;
+            float: left;
+            /*border: 1px solid#424242;*/
+        }
+        #loginPasswordInput{
+        	position: absolute;
+        	height: 33px;
+            margin-left: 10px;
+        }
+        #loginRegisterBtn{
+        	text-decoration: none;
+        	width: 100px; height: 35px;
+        	display: inline-block;
+        	background-color: #5D4037;
+        	line-height: 35px;
+        	text-align: center;
+        	border-radius: 5px;
+        	color: #fff;
+        	font-size: 15px;
+        }
+        #loginBtn{
+            width: 100px;
+            height: 95px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #FFF;
+            background-color: #5D4037;
+            outline: none;
+            border: none;
+            margin-left: 20px;
+            position:absolute;
+        }
+        #loginFind{
+            width: 216px;
+            height: 35px;
+            /*margin-top: 20px;*/
+            margin: 30px auto;
+            /*border: 1px solid #424242;*/
+        }
+        #loginFind>button{
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            cursor: pointer;
+            outline: none;
+            background-color: #5D4037;
+            color: #FFF;
+            border: none;
+            font-size: 15px;
+            font-family: "kakao", sans-serif;
+        }
+        #otherLogin>button{
+            width: 250px;
+            height: 50px;
+            /*margin-left: 55px;*/
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+        #loginClose{
+            font-size: 32px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        #otherLoginBox{
+            /*border: 1px solid #424242;*/
+            width: 300px;
+            height: 230px;
+            margin: auto;
+        }
+        #otherLoginBox>button{
+            width: 300px;
+            height: 60px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+        }
+        .kakao{
+            background-color: #FFAB00;
+        }
+        .facebook{
+            background-color: #0D47A1;
+        }
+        .naver{
+            background-color: #33691E;
+        }
+        .otherLogin{
+            color: #fff;
+            outline: none;
+            cursor: pointer;
+            border: none;
+        }
+
+        .loginPopup{
+            background-color: #424242;
+            width: 100%;
+            height: 100%;
+            left:0;
+            top:0;
+            position: fixed;
+            opacity: .5;
+            display: none;
+            z-index:2;
+        }

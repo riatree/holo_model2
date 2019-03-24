@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- 어노테이션으로(반드시) -->
+	<mvc:annotation-driven/>
+	
+	<!-- /WEB-INF/view/ .jsp -->
+	<mvc:view-resolvers>
+		<mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>
+	</mvc:view-resolvers>
+	
+	<!-- /는 모든 요청이 DispatcherServlet으로 들어가기 때문에 resource를 설정해야한다.  -->
+	<mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
+	<mvc:resources location="/img/" mapping="/img/**"></mvc:resources>
+	<mvc:resources location="/upload/" mapping="/upload/**"></mvc:resources>
+	<mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
+	<mvc:resources location="/fonts/" mapping="/fonts/**"></mvc:resources>
+	<mvc:resources location="/profile/" mapping="/profile/**"></mvc:resources>
+	<mvc:resources location="/spot/" mapping="/spot/**"></mvc:resources>
+	<mvc:resources location="/location/" mapping="/location/**"></mvc:resources>
+
+	<!-- controller 설정 -->
+	<bean class="org.yolo.holo.controller.IndexController"/>
+	
+	<!-- 은서 : 로그인위해 추가 -->	
+	<bean class="org.yolo.holo.controller.UserController"
+		p:dounorsService-ref="dounorsService"/>
+		
+	<bean p:hlogsService-ref="hlogsService" p:dounorsService-ref="dounorsService" p:followService-ref="followService"
+   		class="org.yolo.holo.controller.HlogController" p:fileRenameUtil-ref="fileRenameUtil" p:hlogCommentsService-ref="hlogCommentsService"/>
+	<bean class="org.yolo.holo.controller.LocationController"
+		p:locationsService-ref="locationsService"/>
+	
+	<!-- 은서 : spot list 추가 -->
+	<bean 
+	 	class="org.yolo.holo.controller.SpotController"
+		p:spotsService-ref="spotsService"
+		p:locationsService-ref="locationsService"
+		p:dounorsService-ref="dounorsService"
+		p:menusService-ref="menusService"
+		p:fileRenameUtil-ref="fileRenameUtil"/>
+	<bean class="org.yolo.holo.controller.TogetherController"
+		p:spotsService-ref="spotsService"
+		p:togethersService-ref="togethersService"/>
+	<bean class="org.yolo.holo.controller.TagController"/>
+	
+	<bean class="org.yolo.holo.filter.LoginCheckFilter"/>
+	
+	<!-- MultipartResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:defaultEncoding="UTF-8"
+		p:maxUploadSize="104857600" />
+	
+</beans>

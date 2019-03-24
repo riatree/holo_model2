@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- null입력 허용 -->
+	<settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+	
+	<typeAliases>
+		<typeAlias alias="CheckList" type="org.yolo.holo.vo.CheckList"/>
+		<typeAlias alias="ContentsTag" type="org.yolo.holo.vo.ContentsTag"/>
+		<typeAlias alias="Dounor" type="org.yolo.holo.vo.Dounor"/>
+		<typeAlias alias="DounorSave" type="org.yolo.holo.vo.DounorSave"/>
+		<typeAlias alias="Follow" type="org.yolo.holo.vo.Follow"/>
+		<typeAlias alias="FoodGrade" type="org.yolo.holo.vo.FoodGrade"/>
+		<typeAlias alias="HLog" type="org.yolo.holo.vo.Hlog"/>
+		<typeAlias alias="HLogComment" type="org.yolo.holo.vo.HlogComment"/>
+		<typeAlias alias="HLogSpot" type="org.yolo.holo.vo.HlogSpot"/>
+		<typeAlias alias="Location" type="org.yolo.holo.vo.Location"/>
+		<typeAlias alias="LocationCheck" type="org.yolo.holo.vo.LocationCheck"/>
+		<typeAlias alias="Menu" type="org.yolo.holo.vo.Menu"/>
+		<typeAlias alias="Personnel" type="org.yolo.holo.vo.Personnel"/>
+		<typeAlias alias="Review" type="org.yolo.holo.vo.Review"/>
+		<typeAlias alias="Service" type="org.yolo.holo.vo.Service"/>
+		<typeAlias alias="Spot" type="org.yolo.holo.vo.Spot"/>
+		<typeAlias alias="SpotPic" type="org.yolo.holo.vo.SpotPic"/>
+		<typeAlias alias="Tag" type="org.yolo.holo.vo.Tag"/>
+		<typeAlias alias="Together" type="org.yolo.holo.vo.Together"/>
+		<typeAlias alias="TourGrade" type="org.yolo.holo.vo.TourGrade"/>
+		<typeAlias alias="PageVO" type="org.yolo.holo.vo.PageVO"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="org/yolo/holo/mapper/checklist.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/contentstag.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/dounor.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/dounorsave.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/follow.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/foodgrade.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlogcomment.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlog.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/hlogspot.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/locationcheck.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/location.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/menu.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/personnel.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/review.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/service.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/spotpic.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/spot.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/tag.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/together.xml"></mapper>
+		<mapper resource="org/yolo/holo/mapper/tourgrade.xml"></mapper>
+	</mappers>	
+	
+</configuration>

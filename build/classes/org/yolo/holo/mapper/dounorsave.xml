@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dounorsave">
+	
+	<select id="selectSpotLike" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+	FROM(SELECT d.no, d.contents_no, d.type, s.no, s.name
+		FROM dounorsave d, spot s
+		WHERE d.contents_no = s.no
+		AND d.type = 'L'
+		AND d.contents_no = #{no})
+	</select>
+	
+	<select id="selectSpotScrap" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+	FROM(SELECT d.no, d.contents_no, d.type, s.no, s.name
+		FROM dounorsave d, spot s
+		WHERE d.contents_no = s.no
+		AND d.type = 'S'
+		AND d.contents_no = #{no})
+	</select>
+	
+	<!-- ???언제 왜 만든거지? -->
+	<select id="selectProfileScrapTour" parameterType="int" resultType="DounorSave">
+		SELECT no, CONTENTS_TYPE contentsType, CONTENTS_NO contentsNo, TYPE type, NO_DOUNOR noDounor
+		FROM dounorsave
+		WHERE contents_type ='T'
+		AND type = 'S'
+		AND no_dounor = #{no}
+	</select>
+	
+	<!-- 프로필 스크립 관광명소 리스트 -->
+	<select id="selectProScrapTourList" parameterType="int" resultType="DounorSave">
+		SELECT v.no no, v.contents_type contentsType, v.contents_no contentsNo, v.type type, v.no_dounor noDounor,
+			s.no spotNo, s.name spotName, s.type spotType,
+			p.no, p.picname picname, p.type,
+			d.no dounorNo, d.profile profile, d.nickname nickname
+		FROM dounorsave v, spot s, spotpic p, dounor d
+		WHERE s.no = v.contents_no
+		AND s.no = p.no_spot
+		AND v.no_dounor = d.no
+		AND p.type = 'K'
+		AND v.type = 'S'
+		AND s.type = 'T'
+		AND v.no_dounor = #{no}
+	</select>
+	
+	<!-- 프로필 스크립 음식점 리스트 -->
+	<select id="selectProScrapFoodList" parameterType="int" resultType="DounorSave">
+		SELECT v.no no, v.contents_type contentsType, v.contents_no contentsNo, v.type type, v.no_dounor noDounor,
+			s.no spotNo, s.name spotName, s.type spotType, s.price price,
+			p.no, p.picname picname, p.type,
+			d.no dounorNo, d.profile profile, d.nickname nickname
+		FROM dounorsave v, spot s, spotpic p, dounor d
+		WHERE s.no = v.contents_no
+		AND s.no = p.no_spot
+		AND v.no_dounor = d.no
+		AND p.type = 'K'
+		AND v.type = 'S'
+		AND s.type = 'F'
+		AND v.no_dounor = #{no}
+	</select>
+	
+	<!-- 프로필 스크립 관광명소 카운트 -->
+	<select id="selectProScrapTourCount" parameterType="int" resultType="int">
+		SELECT count(*) count
+		FROM(SELECT v.no no, v.contents_type contentsType, v.contents_no contentsNo, v.type type, v.no_dounor noDounor,
+			s.no spotNo, s.name spotName, s.type spotType,
+			p.no, p.picname picname, p.type,
+			d.no dounorNo, d.profile profile, d.nickname nickname
+		FROM dounorsave v, spot s, spotpic p, dounor d
+		WHERE s.no = v.contents_no
+		AND s.no = p.no_spot
+		AND v.no_dounor = d.no
+		AND p.type = 'K'
+		AND v.type = 'S'
+		AND s.type = 'T'
+		AND v.no_dounor = #{no})
+	</select>
+	
+	<!-- 프로필 스크립 음식점 카운트 -->
+	<select id="selectProScrapFoodCount"  parameterType="int" resultType="int">
+		SELECT count(*) count
+		FROM(SELECT v.no no, v.contents_type contentsType, v.contents_no contentsNo, v.type type, v.no_dounor noDounor,
+			s.no spotNo, s.name spotName, s.type spotType,
+			p.no, p.picname picname, p.type,
+			d.no dounorNo, d.profile profile, d.nickname nickname
+		FROM dounorsave v, spot s, spotpic p, dounor d
+		WHERE s.no = v.contents_no
+		AND s.no = p.no_spot
+		AND v.no_dounor = d.no
+		AND p.type = 'K'
+		AND v.type = 'S'
+		AND s.type = 'F'
+		AND v.no_dounor = #{no})
+	</select>
+	
+	
+	<!-- 라이크 카운트 -->
+	<select id="selectLikeCount" parameterType="int" resultType="int">
+		SELECT count(*) count
+		FROM(SELECT type, no_dounor noDounor
+			FROM dounorsave
+			WHERE type = 'L'
+			AND no_dounor = #{no})
+	</select>
+	
+</mapper>

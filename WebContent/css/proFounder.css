@@ -1,0 +1,429 @@
+@charset "UTF-8";
+
+/*스크랩*/
+.founderContents{
+    width: 1080px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    display: none;
+}
+#founderSearchList{
+    position: relative;
+    width: 1080px;
+    height: 60px;
+
+}
+#founderSearch{
+    position: absolute;
+    width: 156px;
+    height: 30px;
+    right:56px;
+    top: 20px;
+}
+#founderSearchBtn{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+/*공통*/
+.founderTitleBox{
+    width: 1080px;
+    height: 50px;
+    position: relative;
+
+}
+.founderName{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    left: 50px;
+    margin-top: 15px;
+}
+
+.founderAmount{
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 130px;
+    margin-top: 15px;
+    color: #FF8F00;
+}
+.founderDetail{
+    position: absolute;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 130px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.founderBox {
+    width: 290px;
+    height: 280px;
+    background-color: #424242;
+    position: relative;
+    float: left;
+    margin-right: 45px;
+}
+
+.founderBox_m {
+    position: relative;
+    width: 288px;
+    height: 78px;
+    background-color: white;
+    border: 1px #BDBDBD solid;
+    margin-top: 200px;
+}
+.founderIce {
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    top: 6px;
+    right: 35px;
+}
+.founderS1 {
+    position: absolute;
+    right:100px;
+}
+.founderS2 {
+    position: absolute;
+    right:10px;
+}
+.hashBox{
+           width: 280px;
+           height: 20px;
+            position: absolute;
+            bottom: 86px;
+            right: 6px;
+        }
+.hash {
+            padding: 1px 5px;
+            width: 80px;
+            height: 20px;
+            background-color: #A1887F;
+            border-radius: 20px;
+            font-size: 15px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #424242;
+            line-height: 20px;
+            color: white;
+            float: left;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-left: 3px;
+}
+        
+.founderUser {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.founderBtn {
+    width: 60px;
+    height: 280px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 60px;
+}
+.founderBtnResion{
+    width: 60px;
+    height: 225px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 40px;
+}
+
+.founderLeftBtn {
+    left: 0px;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.founderRightBtn {
+    left: 1020px;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/*여행지*/
+#founderRegionbox{
+    width: 960px;
+    height: 200px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+
+#founderRegionList{
+    width: auto;
+    height: 202px;
+    position: relative;
+}
+.founderLocationOne{
+    position: relative;
+    width: 240px;
+    height: 200px;
+    float: left;
+    margin: 0 40px;
+    border-radius: 5px;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.founderLocationOne>img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.founderLocationName {
+    position: relative;
+    width: 240px;
+    height: 200px;
+}
+
+.founderLocationName a {
+    display: block;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.founderLocationImg {
+    width: 240px;
+    height: 200px;
+    position: absolute;
+}
+
+.founderLocationImg img{
+    width: 240px;
+    height: 200px;
+}
+
+.founderLocationOne .founderStar {
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    right: 2px;
+    top: 0;
+}
+.founderStar>img {
+    width: 30px;
+    height: 30px;
+}
+.founderIceBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid white;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+
+
+
+
+/*관광명소*/
+
+#founderAttractionBox{
+    width: 960px;
+    height: 280px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+
+#founderAttractionList{
+    height: 280px;
+    position: relative;
+}
+.founderAttraction {
+    margin: 0 15px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 3px;
+    color:#000;
+}
+.founderBox .founderAttractionImg img {
+    width: 290px;
+    height: 200px;
+}
+.founderBox .founderAttractionStar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+}
+
+.founderBox_m .founderAttractionHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+.founderAttractionName {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#000;
+    text-decoration: none;
+}
+.founderMoney{
+      position: absolute;
+            bottom:5px;
+            right: 85px;
+            font-weight: bold;
+            margin-bottom: 5px;   
+}
+.founderAttractionNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+/*음식점*/
+
+#founderRestaurantBox{
+    width: 960px;
+    height: 280px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+
+#founderRestaurantList{
+    height: 280px;
+    position: relative;
+}
+.founderRestaurant {
+    margin: 0 15px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 3px;
+    color:#000;
+}
+
+
+.founderBox .founderRestaurantImg img {
+    width: 290px;
+    height: 200px;
+}
+
+
+.founderBox .founderRestaurantStar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+}
+
+.founderBox_m .founderRestaurantHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+
+.founderRestaurantName {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#000;
+    text-decoration: none;
+}
+.founderRestaurantRealWon{
+    position: absolute;
+
+    height: 25px;
+    bottom:0;
+    right: 80px;
+    font-weight: bold;
+}
+.founderRealWon {
+    float: right;
+}
+
+.founderRestaurantNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#emptyFounderListBox{
+   height: 300px;
+}
+
+#emptyFounderList{
+   text-align: center;
+   font-size: 50px;
+   line-height: 260px;
+}

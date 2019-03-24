@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="together">
+	<!-- <select id="selectTogetherList" resultType="Together"> SELECT s.no_spot 
+		noSpot,TO_CHAR(t.meet_date,'YYYY-MM-DD (dy)') meetDate,t.meet_time meetTime,t.contents,t.personnel,t.gender,t.kakao,t.regdate,s.picname 
+		picName FROM together t , spotpic s WHERE s.type='K' AND t.no_spot=s.no_spot 
+		</select> -->
+
+
+	<!-- 동행 리스트 ( 동행 메인 페이지 ) -->
+	<select id="selectTogetherList" resultType="Together">
+		SELECT t.no
+		,s.no_spot noSpot, meet_date meetDate,t.meet_time
+		meetTime,t.contents,t.personnel,t.gender,t.kakao,t.regdate,s.picname
+		picName
+		FROM together t , spotpic s
+		WHERE s.type='K' AND
+		t.no_spot=s.no_spot
+		ORDER BY 1 DESC
+	</select>
+
+	<!-- 수진 스팟 동행 리스트 -->
+	<select id="selectSpotTogetherList" resultType="Together"
+		parameterType="int">
+		SELECT t.no ,s.no_spot noSpot, meet_date
+		meetDate,t.meet_time
+		meetTime,t.contents,t.personnel,t.gender,t.kakao,t.regdate,s.picname
+		picName
+		FROM together t , spotpic s
+		WHERE s.type='K' AND
+		t.no_spot=s.no_spot AND t.no_spot=#{no}
+	</select>
+
+	<!-- 수진 -->
+	<!-- no 값을 받아오는 동행 리스트 (리뷰에서 사용) -->
+	<select id="selectTogetherListNo" resultType="Together"
+		parameterType="int">
+		SELECT s.no_spot noSpot,meet_date meetDate,
+		t.meet_time meetTime,t.contents,t.personnel,t.gender,t.kakao,t.regdate,s.picname
+		picName
+		FROM together t , spotpic s
+		WHERE s.type='K' AND t.no_spot=s.no_spot AND t.no_spot=#{no}
+	</select>
+
+	<select id="selectPersonnelTotal" parameterType="int"
+		resultType="int">
+		SELECT COUNT(*) count
+		FROM together t, personnel p
+		WHERE
+		p.no_together = t.no
+		AND t.no = #{no}
+	</select>
+
+	<select id="selectOnePop" resultType="Together"
+		parameterType="int">
+		SELECT t.no no, t.meet_date meetDate, t.meet_time
+		meetTime, t.contents
+		contents, t.personnel personnel, t.gender gender,
+		t.no_spot noSpot, t.kakao kakao, t.regdate regdate, d.profile profile,
+		d.nickname nickname
+		FROM together t, personnel p, dounor d
+		WHERE t.no =
+		p.no_together
+		AND
+		p.no_dounor = d.no
+		AND t.no=#{no}
+	</select>
+
+	<!-- 수진 -->
+	<select id="selectTogetherListPage" resultType="Together"
+		parameterType="PageVO">
+		SELECT no, meetDate, meetTime,contents,personnel,gender,
+		kakao,regdate, picName, r,noSpot
+		FROM(SELECT no, meetDate, meetTime,contents,personnel,gender, kakao,regdate,
+		picName, noSpot,rownum r
+		FROM(SELECT t.no no, meet_date meetDate,t.meet_time meetTime,t.contents
+		contents,t.personnel personnel,t.gender gender,t.kakao kakao,t.regdate
+		regdate,s.picname picName,t.no_spot noSpot
+		FROM together t, spotpic s
+		WHERE s.type='K' AND t.no_spot=s.no_spot
+		ORDER BY 1 DESC))
+		WHERE r BETWEEN #{start} AND #{end}
+	</select>
+
+	<!-- 수진 -->
+	<select id="selectTogetherTotal" resultType="int">
+		SELECT count(*)
+		FROM
+		together
+	</select>
+
+	<select id="selectProTogetherList" resultType="Together"
+		parameterType="int">
+		SELECT t.NO,t.MEET_DATE meetDate,t.MEET_TIME
+		meetTime,t.CONTENTS
+		contents,t.PERSONNEL personnel,t.GENDER
+		gender,t.NO_SPOT
+		noSpot,t.KAKAO kakao,t.REGDATE,
+		s.no spotNo, s.name
+		spotName, s.type
+		spotType,
+		c.no spotPicNo,c.picname picName,c.type
+		picType,
+		p.no,
+		p.no_dounor noDounor
+		FROM together t, spot s, spotPic c,
+		personnel p
+		WHERE t.no_spot = s.no
+		AND
+		s.no = c.no_spot
+		AND t.no =
+		p.no_together
+		AND c.type = 'K'
+		AND
+		p.no_dounor = #{no}
+	</select>
+	<select id="selectProTogetherCount" resultType="int"
+		parameterType="int">
+		SELECT COUNT(*) countNum
+		FROM(SELECT t.NO,t.MEET_DATE
+		meetDate,t.MEET_TIME meetTime,t.CONTENTS
+		contents,t.PERSONNEL
+		personnel,t.GENDER gender,t.NO_SPOT
+		noSpot,t.KAKAO kakao,t.REGDATE,
+		s.no spotNo, s.name spotName, s.type spotType,
+		c.no spotPicNo,c.picname
+		picName,c.type picType,
+		p.no, p.no_dounor noDounor
+		FROM together t, spot
+		s, spotPic c, personnel p
+		WHERE t.no_spot = s.no
+		AND s.no = c.no_spot
+		AND t.no = p.no_together
+		AND c.type = 'K'
+		AND p.no_dounor = #{no})
+	</select>
+
+	<!-- 은서 -->
+	<insert id="insert">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int">
+			SELECT together_seq.nextval
+			FROM dual
+		</selectKey>
+		INSERT INTO together(no, meet_date, meet_time, contents, personnel,
+		gender, no_spot, kakao, regdate)
+		VALUES(#{no}, #{meetDate},
+		#{meetTime}, #{contents}, #{personnel}, #{gender}, #{noSpot},
+		#{kakao}, systimestamp)
+	</insert>
+
+
+</mapper>

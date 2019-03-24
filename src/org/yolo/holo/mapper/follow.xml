@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="follow">
+
+	<!-- 팔로잉 리스트 -->
+	<select id="selectFollowingList" resultType="Follow" parameterType="int">
+		SELECT f.no, f.no_following noFollowing, f.no_follower noFollower, d.no dounorNo, d.nickname dounorNickname, d.profile dounorProfile
+		FROM follow f, dounor d
+		WHERE f.no_follower = d.no
+		AND f.no_following = #{no}
+	</select>
+	
+	<!-- 팔로워 리스트 -->
+	<select id="selectFollowerList" resultType="Follow" parameterType="int">
+		SELECT f.no, f.no_following noFollowing, f.no_follower noFollower, d.no dounorNo, d.nickname dounorNickname, d.profile dounorProfile
+		FROM follow f, dounor d
+		WHERE f.no_following = d.no
+		AND f.no_follower = #{no}
+	</select>
+	
+	<!-- 팔로잉 카운트 -->
+	<select id="selectFollowerNum" resultType="int"  parameterType="int">
+		SELECT count(*)
+		FROM(SELECT f.no, f.no_following, f.no_follower, d.no, d.nickname, d.profile
+			FROM follow f, dounor d
+			WHERE f.no_follower = d.no
+			AND f.no_follower = #{no})
+	</select>
+
+	<!-- 팔로워 카운트 -->
+	<select id="selectFollowingNum" resultType="int"  parameterType="int">
+		SELECT count(*)
+		FROM(SELECT f.no, f.no_following, f.no_follower, d.no, d.nickname, d.profile
+		FROM follow f, dounor d
+		WHERE f.no_following = d.no
+		AND f.no_following = #{no})
+	</select>
+	
+	<!-- 내가 팔로잉 유무 -->
+	<select id="selectFollowingNow" parameterType="Follow" resultType="int">
+		SELECT count(*) count
+		FROM(SELECT no,no_following noFollowing,no_follower noFollower,regdate
+			FROM follow
+			WHERE no_following = #{noFollowing}
+			AND no_follower = #{noFollower})
+	</select>
+	
+	<!-- 내가 팔로워 유무 -->
+	<select id="selectFollowerNow" parameterType="Follow" resultType="int">
+		SELECT count(*) count
+		FROM(SELECT no,no_following noFollowing,no_follower noFollower,regdate
+			FROM follow
+			WHERE no_following = #{noFollower}
+			AND no_follower = #{noFollowing})
+	</select>
+	
+	<!-- 팔로우 등록 -->
+	<insert id="insert" parameterType="Follow">
+		INSERT INTO follow(NO,NO_FOLLOWING,NO_FOLLOWER,REGDATE)
+		VALUES(follow_seq.nextval,#{noFollowing}, #{noFollower},systimestamp)
+	</insert>
+
+
+	<!-- 팔로우 삭제 -->
+	<delete id="delete" parameterType="Follow">
+		DELETE FROM follow
+		WHERE no_follower = #{noFollower}
+		AND no_following = #{noFollowing}
+	</delete>
+	
+</mapper>

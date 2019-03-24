@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+.together {
+    position: relative;
+    width: 458px;
+    height: 98px;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.together .image {
+    margin-top: 8px;
+    margin-left: 6px;
+    width: 100px;
+    height: 76px;
+}
+
+.date {
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    top: 10px;
+    left: 115px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.time {
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    top: 10px;
+    left: 225px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.siren {
+    position: absolute;
+    right:8px;
+    top: 5px;
+}
+
+.tag{
+	position:relative;
+	float:left;
+    padding: 1px 8px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #0D47A1;
+    max-width:70px;
+    height: 20px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight:bold;
+    display:block;
+}
+
+.floatTag {
+	position:absolute;
+	width:270px;
+	height:20px;
+	bottom:5px;
+	left:120px;
+}
+        
+
+
+.content {
+    position: absolute;
+    width: 260px;
+    padding: 5px 5px;
+    font-size: 12px;
+    top: 25px;
+    left: 110px;
+}
+
+.personnel {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+
+    line-height: 20px;
+    bottom: 20px;
+    right: 5px;
+
+}
+.gender {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    font-size: 10px;
+    bottom: 35px;
+    right:50px;
+}
+
+.gender img {
+    width: 30px;
+    height: 30px;
+}
+
+.finish {
+    position: absolute;
+    width: 60px;
+    height: 18px;
+    font-size: 15px;
+    bottom: 1px;
+    right: 1px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+.finish .end {	
+    color: #117700;
+}
+.finish .ing {
+	color: #42A5F5;
+}

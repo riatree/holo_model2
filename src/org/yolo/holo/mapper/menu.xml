@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="menu">
+
+	<!-- 은서 : 음식점 등록 insert -->
+	<insert id="insert">
+		INSERT INTO menu(no, name, price, no_spot, king,
+		regdate)
+		VALUES(menu_seq.nextval, #{name}, #{price}, #{noSpot},
+		#{king}, systimestamp)
+	</insert>
+
+	<insert id="menuInsert" parameterType="Menu">
+		INSERT INTO menu(no, name,
+		price, no_spot, regdate)
+		VALUES(menu_seq.nextval, #{name}, #{price},
+		#{noSpot}, systimestamp)
+	</insert>
+
+	<select id="selectMenu" parameterType="int" resultType="Menu">
+		SELECT
+		name,price
+		FROM menu
+		WHERE no_spot=#{no}
+	</select>
+
+
+</mapper>

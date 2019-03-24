@@ -1,0 +1,240 @@
+@charset "UTF-8";
+
+/*together*/
+.proTogetherList{
+    width: 1080px;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #424242;
+    margin: auto;
+    position: relative;
+    /*background-color: #00aad4;*/
+    display: none;
+}
+#proTogetherContents{
+    width: 1080px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 35px;
+    margin-left: 70px;
+
+}
+.togetherPerson{
+    width: 433px;
+    height: auto;
+    overflow: hidden;
+    border: 1px solid #424242;
+    float: left;
+    margin-left: 28px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.proTogether {
+    /*background-color: #9d7a6d;*/
+    position: relative;
+    width: 433px;
+    height: 95px;
+    /*border: 1px solid #BDBDBD;*/
+    border-radius: 3px;
+}
+.proTogether .togetherImage {
+    margin-top: 8px;
+    margin-left: 6px;
+    width: 100px;
+    height: 76px;
+}
+
+.proTogether .togetherDate {
+    position: absolute;
+    width: 200px;
+    height: 25px;
+    top: 10px;
+    left: 115px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.togetherSiren {
+    position: absolute;
+    right:8px;
+    top: 5px;
+}
+
+.togetherTag {
+    position: absolute;
+    padding: 3px 3px;
+    font-size: 12px;
+    left: 115px;
+    bottom: 3px;
+    color: blue;
+    font-weight: bold;
+}
+.proTogether .s1{
+   left:110px;   
+}
+.proTogether .s2{
+   left:200px;   
+}
+
+.proTogether .togetherContent {
+    position: absolute;
+    width: 245px;
+    left: 115px;
+    top: 30px;
+    font-size: 14px;
+    /*background-color: #673AB7;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word;
+    line-height: 1em;
+    height: 2.0em;
+}
+
+.proTogether .togetherPersonnel {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 20px;
+    bottom: 20px;
+    right:0   ;
+
+}
+.proTogether .togetherGender {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    font-size: 10px;
+    bottom: 35px;
+    right:45px;
+}
+
+.proTogether .togetherGender img {
+    width: 30px;
+    height: 30px;
+}
+
+.proTogether .togetherFinish {
+    position: absolute;
+    width: 60px;
+    height: 18px;/*
+            background-color: #C69963;*/
+    font-size: 15px;
+    bottom: 1px;
+    right: 1px;
+    color: #117700;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 15px;
+    /*          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+}
+.otherPerson{
+    position: relative;
+    width: 433px;
+    height: 95px;
+    border-top: 1px dotted #7CB342;
+}
+.otherPerson .togetherReviewMal {
+    position: absolute;
+    left: 15px;
+    background-color: transparent;
+}
+.otherPerson .togetherReviewMal img {
+    width: 70px;
+    height: 70px;
+}
+.togetherReviewIce {
+    position: absolute;
+    left: 25px;
+    top: 10px;
+}
+.togetherReviewIce img {
+    width: 50px;
+    height: 45px;
+}
+.togetherReviewFace {
+    position: absolute;
+    border-radius: 30px;
+    left: 5px;
+    bottom: 2px;
+}
+
+.togetherReviewFace img {
+    border-radius: 30px;
+}
+
+.togetherReviewNick {
+    padding: 5px 5px;
+    position: absolute;
+    left: 35px;
+    bottom: 4px;
+    font-size: 13px;
+    /*background-color: #FFC107;*/
+}
+
+.togetherReviewDay {
+    padding: 5px 5px;
+    position: absolute;
+    right: 80px;
+    bottom: 4px;
+    font-size: 14px;
+    /*background-color: #64FFDA;*/
+}
+
+.togetherReviewContent {
+    position: absolute;
+    width: 300px;
+    left: 90px;
+    top: 16px;
+    font-size: 14px;
+    /*background-color: #673AB7;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* 라인수 */
+    -webkit-box-orient: vertical;
+    word-wrap:break-word;
+    line-height: 1.5em;
+    height: 3.0em;
+}
+
+.togetherReviewHeart {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.togetherReviewPic {
+    cursor: pointer;
+    position: absolute;
+    width: 27px;
+    height: 30px;
+    font-size: 20px;
+    /*background-color: #673AB7;*/
+    right: 50px;
+    bottom: 0;
+    color: #525252;
+}
+.togetherReviewSiren{
+    position: absolute;
+    border: none;
+    outline: 0;
+    top: 5px;
+    right:0px;
+    cursor: pointer;
+    background-color: transparent;
+}
+#emptyTogetherListBox{
+   height: 300px;
+}
+
+#emptyTogetherList{
+   text-align: center;
+   font-size: 50px;
+   line-height: 260px;
+}

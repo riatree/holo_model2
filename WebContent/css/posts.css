@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+#boxWrap {
+    float: left;
+    position: relative;
+    width: 285px;
+    height: 280px;
+    border-radius: 3px;
+}
+
+.box {
+    width: 290px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+.backImage{
+    transition: .5s ease;
+}
+.backImage>img{
+    width: 290px; height: 200px;
+}
+
+.backImage:hover{
+    transform: scale(1.1);
+}
+
+.box_m {
+    position: relative;
+    width: 288px;
+    height: 78px;
+    background-color: white;
+    border: 1px #BDBDBD solid;
+}
+#hashBox{
+    width: 290px;
+    max-height: 30px;
+    position: absolute;
+    bottom: 0; left: 10px;
+    line-height: 30px;
+    opacity: .8;
+}
+.hash{
+    padding: 1px 6px;
+    background-color: coral;
+    border-radius: 20px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    max-width: 75px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+.hlogName {
+    position: absolute;
+    max-width: 150px;
+    max-height: 30px;
+    top:5px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.hlogNickname {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 10px;
+    bottom: 5px;
+}
+
+.ice {
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    top: 6px;
+    right: 35px;
+}
+.hlogClick{
+    font-size: 15px;
+}
+
+.hlogStar {
+    position: absolute;
+    width: 280px;
+    height: 20px;
+    text-align: right;
+    z-index: 1;
+}
+
+.hlogHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}

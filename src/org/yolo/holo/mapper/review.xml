@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="review">
+
+		<!-- 감정분석 포함 스팟 상세 페이지 리뷰
+	<select id="reviewList" resultType="Review" parameterType="int" >
+		SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,d.name name,d.nickname nickname,d.profile profile, 
+		r.contents contents, r.pic_route picRoute,r.regdate regdate,r.hice,
+		ROUND(r.comp,3) complex,ROUND(r.neg,3) negative,ROUND(r.neut,3) neutral,ROUND(r.none,3) noneno, ROUND(r.pos,3) positive	
+		FROM review r, dounor d
+		WHERE no_spot=#{no} AND r.no_dounor=d.no AND r.no_together IS NULL 
+	</select>
+	 -->
+	 
+	 <!-- 수진 추가 스팟 리뷰 -->
+	 <select id="reviewList" resultType="Review" parameterType="int">
+	 	SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,d.name name,d.nickname nickname,d.profile profile, 
+		r.contents contents, r.pic_route picRoute,r.regdate regdate,f.hice hice
+		FROM review r, dounor d, foodgrade f
+		WHERE r.no_spot=#{no} AND r.no_dounor=d.no AND r.no_together IS NULL AND d.no=f.no_dounor
+	 </select>
+	
+	<!-- 스팟 상세 페이지 동행리뷰 수진 추가 -->
+	<select id="reviewTogetherList" resultType="Review" parameterType="int">
+		SELECT p.no_dounor noDounor, d.profile profile ,d.nickname nickname,
+		r.contents contents, f.hice hice, r.regdate regdate,r.pic_route picRoute
+		FROM spot s, together t, personnel p, dounor d,review r,foodgrade f
+		WHERE s.no=#{no} AND t.no=p.no_together AND d.no=p.no_dounor
+		AND r.no_dounor(+)=p.no_dounor AND f.no_dounor(+)=p.no_dounor
+	</select>
+		
+	<insert id="insert" parameterType="Review">
+      <selectKey order="BEFORE" keyProperty="no" resultType="int">
+         SELECT review_seq.nextval
+         FROM dual
+      </selectKey>
+         INSERT INTO review(no, no_spot,no_dounor,contents,pic_route,no_together,regdate)
+         VALUES (#{no},#{noSpot},#{noDounor},#{contents},#{picRoute},#{noTogether},#SYSTIMESTAMP)
+   </insert>
+   
+   
+   <!-- 프로필 관광명소 동행 리뷰 리스트 -->
+      <select id="selectProTogetherReviewTourList" resultType="Review" parameterType="int">
+		SELECT t.NO,t.personnel personnel,t.NO_SPOT noSpot,
+				p.no personnelNo,p.no_together, p.no_dounor noDounor,
+				r.no reviewNo, r.contents contents, r.pic_route reviewPicname, r.regdate reviewRegdate,
+				d.no dounorNo, d.nickname nickname, d.profile profile,
+				g.no tourgradeNo, g.hice hice
+				FROM together t, personnel p, review r, dounor d, tourgrade g
+				WHERE t.no = p.no_together
+				AND t.no = r.no_together
+				AND r.no_dounor = p.no_dounor		
+				AND d.no = p.no_dounor
+				AND p.no_dounor = g.no_dounor
+				AND p.no_dounor = #{no}
+   		</select>
+   		
+   		<!-- 프로필 동행 음식점 리뷰 리스트 -->
+   		<select id="selectProTogetherReviewfoodList" resultType="Review" parameterType="int">
+		SELECT t.NO,t.personnel personnel,t.NO_SPOT noSpot,
+				p.no personnelNo,p.no_together, p.no_dounor noDounor,
+				r.no reviewNo, r.contents contents, r.pic_route reviewPicname, r.regdate reviewRegdate,
+				d.no dounorNo, d.nickname nickname, d.profile profile,
+				g.no foodgradeNo, g.hice hice
+				FROM together t, personnel p, review r, dounor d, foodgrade g
+				WHERE t.no = p.no_together
+				AND t.no = r.no_together
+				AND r.no_dounor = p.no_dounor		
+				AND d.no = p.no_dounor
+				AND p.no_dounor = g.no_dounor
+				AND p.no_dounor = #{no}
+   		</select>
+   		
+   		<!-- 프로필 리뷰 리스트 -->
+   		<select id="selectProReviewList" parameterType="int" resultType="Review">
+		SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,r.pic_route picRoute, r.contents contents,r.no_together noTogether,r.regdate regdate,
+				s.name spotName, s.type spotType,
+				d.no dounorNo, d.profile profile, d.nickname nickname
+			FROM review r, spot s, dounor d
+			WHERE r.no_spot = s.no
+			AND r.no_dounor = d.no
+			AND r.no_together is null
+			AND r.no_dounor = #{no}
+   		</select>
+   		
+   		<!-- ????? 왜쓴거지 -->
+   		<select id="selectProReviewPic" parameterType="Review" resultType="Review">
+			SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,r.pic_route picRoute, r.contents contents,r.no_together noTogether,r.regdate regdate,
+				s.name spotName, s.type spotType,
+				d.no dounorNo, d.profile profile, d.nickname nickname
+			FROM review r, spot s, dounor d
+			WHERE r.no_spot = s.no
+			AND r.no_dounor = d.no
+			AND r.no_together is null
+			AND r.no_dounor = #{noDounor}
+			AND r.no = #{no}
+   		</select>
+   		
+   		<!-- 안씀 -->
+   		<select id="selectProReviewTotal" parameterType="int" resultType="int">
+   		SELECT count(*) count
+		FROM(SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,r.contents contents,r.no_together noTogether,r.regdate regdate,
+					s.name spotName, s.type spotType
+			FROM review r, spot s
+			WHERE r.no_spot = s.no
+			AND r.no_together is null
+			AND r.no_dounor = #{no})
+   		</select>
+   		
+   		<!-- 프로필 리뷰 카운트 -->
+   		<select id="selectProReviewCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) count
+		FROM(SELECT r.no,r.no_spot noSpot,r.no_dounor noDounor,r.contents contents,r.no_together noTogether,r.regdate regdate,
+			s.name spotName, s.type spotType
+			FROM review r, spot s
+			WHERE r.no_spot = s.no
+			AND r.no_together is null
+			AND r.no_dounor = #{no})
+   		</select>
+   		
+   		<select id="selectProReviewFoodHice" parameterType="int" resultType="int">
+			SELECT f.hice hice	
+			FROM review r, foodgrade f
+			WHERE r.no = f.no_review
+			AND r.no = #{no}
+   		</select>
+   		
+   		<select id="selectProReviewTourHice" parameterType="int" resultType="int">
+			SELECT f.hice hice	
+			FROM review r, tourgrade f
+			WHERE r.no = f.no_review
+			AND r.no = #{no}
+   		</select>
+   		
+   		 <!-- 프로필 -->
+   <select id="selectProTogetherList" resultType="Together" parameterType="int">
+   		SELECT t.NO,t.MEET_DATE meetDate,t.MEET_TIME meetTime,t.CONTENTS contents,t.PERSONNEL personnel,t.GENDER gender,t.NO_SPOT noSpot,t.KAKAO kakao,t.REGDATE,
+		s.no spotNo, s.name spotName, s.type spotType,
+		c.no spotPicNo,c.picname picName,c.type picType,
+		p.no, p.no_dounor noDounor 
+		FROM together t, spot s, spotPic c, personnel p
+		WHERE t.no_spot = s.no
+		AND s.no = c.no_spot
+		AND t.no = p.no_together
+		AND c.type = 'K'
+		AND p.no_dounor = #{no}
+   </select>
+    <select id="selectProTogetherCount" resultType="int" parameterType="int">
+   		SELECT COUNT(*) countNum
+   		FROM(SELECT t.NO,t.MEET_DATE meetDate,t.MEET_TIME meetTime,t.CONTENTS contents,t.PERSONNEL personnel,t.GENDER gender,t.NO_SPOT noSpot,t.KAKAO kakao,t.REGDATE,
+			s.no spotNo, s.name spotName, s.type spotType,
+			c.no spotPicNo,c.picname picName,c.type picType,
+			p.no, p.no_dounor noDounor 
+			FROM together t, spot s, spotPic c, personnel p
+			WHERE t.no_spot = s.no
+			AND s.no = c.no_spot
+			AND t.no = p.no_together
+			AND c.type = 'K'
+			AND p.no_dounor = #{no})
+   </select>
+   
+</mapper>

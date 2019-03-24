@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hlog">
+   <insert id="insert" parameterType="HLog">
+   <selectKey order="BEFORE" keyProperty="no" resultType="int">
+      SELECT hlog_seq.nextval
+      FROM dual
+   </selectKey>
+      INSERT INTO hlog (no, title, go_date, come_date, open, contents, title_pic, trip_style, hice, hit, no_dounor, regdate)
+      VALUES(#{no}, #{title}, #{goDate}, #{comeDate}, #{open}, #{contents}, #{titlePic}, #{tripStyle}, #{hice}, 0,#{dounorNo}, SYSTIMESTAMP)
+   </insert>
+   
+   <select id="selectOne" resultType="HLog" parameterType="int">
+      SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+               d.no dounorNo, d.profile profile, d.nickname nickname, s.count likeNum, c.count commentNum   
+      FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                           FROM dounorsave
+                           WHERE type ='L' AND contents_type = 'H'
+                           GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                            FROM hlogcomment
+                                           GROUP BY no_hlog) c
+      WHERE h.no_dounor = d.no
+      AND h.no = s.hlogNo(+)
+      AND h.no = c.hlogNo(+)
+      AND h.no = #{no}
+   </select>
+   
+   <select id="selectList" resultType="HLog" parameterType="PageVO" >
+      SELECT no, title, goDate, comeDate, open, contents, titlePic, tripStyle, hice, hit, regdate, dounorNo, profile, nickname, likeNum, commentNum
+      FROM(SELECT no, title, goDate, comeDate, open, contents, titlePic,tripStyle,hice, hit, regdate, dounorNo, profile, nickname, likeNum, commentNum, rownum r
+          FROM(SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+                      d.no dounorNo, d.profile profile, d.nickname nickname, s.count likeNum, c.count commentNum   
+              FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                                  FROM dounorsave
+                                  WHERE type ='L' AND contents_type = 'H'
+                                  GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                                   FROM hlogcomment
+                                                   GROUP BY no_hlog) c
+         WHERE h.no_dounor = d.no
+         AND h.no = s.hlogNo(+)
+         AND h.no = c.hlogNo(+)
+         AND open = 'Y'
+         ORDER BY h.no DESC))
+      WHERE r BETWEEN #{start} AND #{end}
+   </select>
+   
+   <select id="selectTotal" resultType="int">
+      SELECT COUNT(*)
+      FROM hlog
+      WHERE open = 'Y'
+
+   </select>
+   <select id="selectProTotal" parameterType="PageVO" resultType="int">
+      SELECT COUNT(*)
+      FROM hlog
+      WHERE no_dounor = #{no}
+      <if test="#{flag==false}">
+       AND open = 'Y'
+      </if>
+   </select>
+   
+   
+   <select id="slectMyTotal" resultType="int" parameterType="int">
+      SELECT COUNT(*)
+      FROM hlog
+      WHERE no_dounor = #{no}
+   </select>
+   
+   <update id="updateHit" parameterType="int">
+      UPDATE hlog SET hit = hit + 1
+      WHERE no = #{no}
+   </update>
+   
+   <select id="selectProList" resultType="HLog" parameterType="PageVO" >
+   SELECT no,title,goDate,comeDate,open,contents,titlePic, tripStyle, hice, hit,regdate,dounorNo,profile,nickname,likeNum,commentNum, r
+   FROM(SELECT no,title,goDate,comeDate,open,contents,titlePic, tripStyle, hice, hit,regdate,dounorNo,profile,nickname,likeNum,commentNum, rownum r
+      FROM(SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+            d.no dounorNo, d.profile profile, d.nickname nickname,
+         s.count likeNum,
+         c.count commentNum   
+              FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                                  FROM dounorsave
+                                  WHERE type ='L' AND contents_type = 'H'
+                                  GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                                   FROM hlogcomment
+                                                   GROUP BY no_hlog) c
+         WHERE h.no_dounor = d.no
+         AND h.no = s.hlogNo(+)
+         AND h.no = c.hlogNo(+)
+         <if test="#{flag==false}">
+         AND open = 'Y'
+         </if>
+         AND d.no = #{no}))
+   WHERE r BETWEEN #{start} AND #{end}
+   </select>
+   
+<!--    <select id="selectMyProList" resultType="HLog" parameterType="PageVO" >
+   SELECT no,title,goDate,comeDate,open,contents,titlePic, tripStyle, hice, hit,regdate,dounorNo,profile,nickname,likeNum,commentNum, r
+   FROM(SELECT no,title,goDate,comeDate,open,contents,titlePic, tripStyle, hice, hit,regdate,dounorNo,profile,nickname,likeNum,commentNum, rownum r
+      FROM(SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+            d.no dounorNo, d.profile profile, d.nickname nickname,
+         s.count likeNum,
+         c.count commentNum   
+              FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                                  FROM dounorsave
+                                  WHERE type ='L' AND contents_type = 'H'
+                                  GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                                   FROM hlogcomment
+                                                   GROUP BY no_hlog) c
+         WHERE h.no_dounor = d.no
+         AND h.no = s.hlogNo(+)
+         AND h.no = c.hlogNo(+)
+         AND d.no = #{no}))
+   </select> -->
+   
+   
+   <select id="selectMyProHlogCount" resultType="int" parameterType="int" >
+         SELECT COUNT(*) countNum
+         FROM(SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+                               d.no dounorNo, d.profile profile, d.nickname nickname, s.count likeNum, c.count commentNum   
+                       FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                                           FROM dounorsave
+                                           WHERE type ='L' AND contents_type = 'H'
+                                           GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                                            FROM hlogcomment
+                                                            GROUP BY no_hlog) c
+                  WHERE h.no_dounor = d.no
+                  AND h.no = s.hlogNo(+)
+                  AND h.no = c.hlogNo(+)
+                  AND d.no = #{no})
+   </select>
+   
+      <select id="selectLocationList" resultType="HLog">
+      SELECT h.no no, h.title title, h.go_date goDate, h.come_date comeDate, h.open open, h.contents contents, h.title_pic titlePic, h.trip_style tripStyle, h.hice hice, h.hit hit, h.regdate regdate, 
+            d.no dounorNo, d.profile profile, d.nickname nickname,
+             s.count likeNum, c.count commentNum   
+                    FROM hlog h, dounor d,(SELECT contents_no hlogNo, COUNT(*) count
+                                        FROM dounorsave
+                                        WHERE type ='L' AND contents_type = 'H'
+                                        GROUP BY contents_no) s,(SELECT no_hlog hlogNo, COUNT(*) count 
+                                                         FROM hlogcomment
+                                                         GROUP BY no_hlog) c
+               WHERE h.no_dounor = d.no
+               AND h.no = s.hlogNo(+)
+               AND h.no = c.hlogNo(+)
+               AND open = 'Y'
+               ORDER BY h.no DESC
+   </select>
+   
+   
+   
+</mapper>

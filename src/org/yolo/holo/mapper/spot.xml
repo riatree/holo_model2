@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="spot">
+	
+	<select id="selectFoodList"  resultType="Spot" parameterType="PageVO" >
+	SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType, r, hice
+	FROM(SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType, rownum r, hice		
+		FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType, g.hice hice 
+			FROM spot s, dounor d, spotpic p, (SELECT spotNo, AVG(noSpotHice) hice
+                                 FROM(SELECT f.no, f.hice noSpotHice, s.no spotNo, s.name spotName
+                                    FROM foodgrade f, spot s
+                                    WHERE f.no_spot = s.no)
+                                 GROUP BY spotNo) g			
+			WHERE s.NO_DOUNOR = d.no
+			AND s.TYPE = 'F'
+			AND s.no = p.no_spot
+			AND p.type = 'K'
+			AND s.no = g.spotNo
+			ORDER BY 1 DESC))
+			WHERE r BETWEEN #{start} AND #{end}
+	</select>
+	
+	<select id="selectFoodTotal" resultType="int">
+		SELECT count(type)
+		FROM spot
+		WHERE type = 'F'
+	</select>
+
+	<select id="selectTourList"  resultType="Spot" parameterType="PageVO" >
+	SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType, r, hice
+	FROM(SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType, rownum r, hice		
+		FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType, g.hice hice 
+			FROM spot s, dounor d, spotpic p, (SELECT spotNo, AVG(noSpotHice) hice
+                                 FROM(SELECT f.no, f.hice noSpotHice, s.no spotNo, s.name spotName
+                                    FROM tourgrade f, spot s
+                                    WHERE f.no_spot = s.no)
+                                 GROUP BY spotNo) g			
+			WHERE s.NO_DOUNOR = d.no
+			AND s.TYPE = 'T'
+			AND s.no = p.no_spot
+			AND p.type = 'K'
+			AND s.no = g.spotNo
+			ORDER BY 1 DESC))
+			WHERE r BETWEEN #{start} AND #{end}
+		
+	</select>
+	
+	<select id="selectTourTotal" resultType="int">
+		SELECT count(type)
+		FROM spot
+		WHERE type = 'T'	
+	</select>
+	
+	<select id="selectMainTourList" resultType="Spot">
+		SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType   
+      FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType 
+         FROM spot s, dounor d, spotpic p
+         WHERE s.NO_DOUNOR = d.no
+         AND s.no = p.no_spot
+         AND s.type = 'T'
+         AND p.type = 'K')
+	</select>
+	
+	<select id="selectMainFoodList" resultType="Spot">
+		SELECT NO, NAME, PRICE, TYPE, categoryType, noLocation, noDounor, dounorNo, nickname, profile, noSpot, picname, picType   
+      FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType 
+         FROM spot s, dounor d, spotpic p
+         WHERE s.NO_DOUNOR = d.no
+         AND s.no = p.no_spot
+         AND p.type = 'K'
+         AND s.type = 'F')
+	</select>
+	
+<!-- 	<select id="selectProfileTourList">
+		SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType 
+		FROM spot s, dounor d, spotpic p
+		WHERE s.NO_DOUNOR = d.no
+		AND s.TYPE = 'F'
+		AND s.no = p.no_spot
+		AND p.type = 'K'
+		AND s.no = #{no}
+	</select> -->
+	
+	<!-- 수진 s.no no 추가 type추가  -->
+	<select id="selectSpotOne" parameterType="int" resultType="Spot">
+		SELECT s.no no,s.name name,d.name dounorName,d.nickname nickname,d.profile profile, address1,address2, latitude,longitude,contact,
+		open_time openTime,close_time closeTime,price,contents,category_type categoryType,website,type
+		FROM spot s, dounor d
+		WHERE s.no=#{no} AND s.no_dounor=d.no
+	</select>
+	
+	<!-- 수진 추가 스팟 전체 리스트 -->
+	<select id="selectSpotList" resultType="Spot" parameterType="int">
+		SELECT s.no no,s.name name,d.nickname nickname,d.profile profile, p.picname,latitude,longitude,price,g.hice hice
+      FROM spot s, dounor d, spotpic p,(SELECT spotNo, AVG(noSpotHice) hice
+                                 FROM(SELECT f.no, f.hice noSpotHice, s.no spotNo, s.name spotName
+                                    FROM tourgrade f, spot s
+                                    WHERE f.no_spot = s.no)
+                                 GROUP BY spotNo) g
+      WHERE s.no_dounor=d.no AND p.no_spot=s.no AND p.type='K' AND s.no=g.spotNo
+	</select>
+	
+	<select id="selectLocationTourList" resultType="Spot" parameterType="int">
+		SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType 
+		FROM spot s, dounor d, spotpic p
+		WHERE s.NO_DOUNOR = d.no
+		AND s.no = p.no_spot
+		AND p.type = 'K'
+		AND s.type = 'T'
+		AND s.no_location = #{no}
+	</select>
+	
+	<select id="selectLocationFoodList" resultType="Spot" parameterType="int">
+		SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor, d.no dounorNo, d.nickname, d.profile, p.no_spot noSpot, p.picname, p.type picType 
+		FROM spot s, dounor d, spotpic p
+		WHERE s.NO_DOUNOR = d.no
+		AND s.no = p.no_spot
+		AND p.type = 'K'
+		AND s.type = 'F'
+		AND s.no_location = #{no}
+	</select>
+	
+	<insert id="insertTour" parameterType="Spot">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int" >
+			SELECT spot_seq.nextval
+			FROM dual			
+		</selectKey>		
+		INSERT INTO spot(no, name, address1, address2, latitude, longitude, contact, open_time, close_time, price, contents, type, category_type, website, no_location, no_dounor, regdate)
+		VALUES(#{no}, #{name}, #{address1}, #{address2}, #{latitude}, #{longitude}, #{contact}, #{openTime}, #{closeTime}, #{price}, #{contents}, 'T', #{categoryType}, #{website}, #{noLocation}, #{dounorNo}, systimestamp)		
+	</insert>
+	
+	<!-- 음식점 등록 insert -->
+	<insert id="insertFood" parameterType="Spot">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int" >
+			SELECT spot_seq.nextval
+			FROM dual			
+		</selectKey>		
+		INSERT INTO spot(no, name, address1, address2, latitude, longitude, contact, open_time, close_time, price, contents, type, category_type, website, no_location, no_dounor, regdate)
+		VALUES(#{no}, #{name}, #{address1}, #{address2}, #{latitude}, #{longitude}, #{contact}, #{openTime}, #{closeTime}, #{price}, #{contents}, 'F', #{categoryType}, '', #{noLocation}, #{dounorNo}, systimestamp)		
+	</insert>
+	
+	<!-- 프로필 관광명소 파운더 리스트 -->
+	<select id="selectProTourFounder" parameterType="int" resultType="Spot">
+		SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor,
+				d.no dounorNo, d.nickname, d.profile,
+				p.no_spot noSpot, p.picname, p.type picType 
+		FROM spot s, dounor d, spotpic p
+		WHERE s.NO_DOUNOR = d.no
+		AND s.no = p.no_spot
+		AND p.type = 'K'
+		AND s.type = 'T'
+		AND s.no_dounor = #{no}
+	</select>
+	
+	<!-- 프로필 음식점 파운더 리스트 -->
+	<select id="selectProFoodFounder" parameterType="int" resultType="Spot">
+		SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor,
+				d.no dounorNo, d.nickname, d.profile,
+				p.no_spot noSpot, p.picname, p.type picType 
+		FROM spot s, dounor d, spotpic p
+		WHERE s.NO_DOUNOR = d.no
+		AND s.no = p.no_spot
+		AND p.type = 'K'
+		AND s.type = 'F'
+		AND s.no_dounor = #{no}
+	</select>
+	
+	<!-- 프로필 관광명소 파운더 카운트 -->
+	<select id="selectProTourFounderCount" parameterType="int" resultType="int">
+	SELECT COUNT(*) countNum
+	FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor,
+					d.no dounorNo, d.nickname, d.profile,
+					p.no_spot noSpot, p.picname, p.type picType 
+			FROM spot s, dounor d, spotpic p
+			WHERE s.NO_DOUNOR = d.no
+			AND s.no = p.no_spot
+			AND p.type = 'K'
+			AND s.type = 'T'
+			AND s.no_dounor = #{no})
+	</select>
+	
+	<!-- 프로필 음식점 파운더 카운트 -->
+	<select id="selectProFoodFounderCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) countNum
+		FROM(SELECT s.NO, s.NAME, s.PRICE, s.TYPE, s.CATEGORY_TYPE categoryType, s.NO_LOCATION noLocation, s.NO_DOUNOR noDounor,
+						d.no dounorNo, d.nickname, d.profile,
+						p.no_spot noSpot, p.picname, p.type picType 
+				FROM spot s, dounor d, spotpic p
+				WHERE s.NO_DOUNOR = d.no
+				AND s.no = p.no_spot
+				AND p.type = 'K'
+				AND s.type = 'F'
+				AND s.no_dounor = #{no})
+	</select>	
+	
+	<!-- 은서 : together에서 spot 검색 -->
+	<select id="selectSearchSpotInTogether" resultType="Spot" parameterType="String">
+		SELECT no, name, type, no_location noLocation
+		FROM spot
+		WHERE name LIKE #{name}
+	</select>
+	
+	
+</mapper>

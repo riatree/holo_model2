@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tourgrade">
+
+	<select id="selectTourHice" resultType="double" parameterType="int">
+		SELECT AVG(noSpotHice)
+		FROM(SELECT f.no, f.hice noSpotHice, s.no spotNo, s.name spotName
+			FROM tourgrade f, spot s
+			WHERE f.no_spot = s.no
+			AND s.no = #{no})
+	</select>
+	
+	<!-- 수진 추가 -->
+	<select id="selectTourReview" resultType="TourGrade" parameterType="int">
+		SELECT count(no_dounor) noDounorCount, AVG(hice) hiceCount, 
+		      count(case when photozon = '1' then 1 end) photozonCount,count(case when facility = '1' then 1 end) facilityCount,
+		      count(case when traffic = '1' then 1 end) trafficCount,count(case when together_good = '1' then 1 end) togetherGoodCount,
+		      count(case when watch = '1' then 1 end) watchCount, count(case when around = '1' then 1 end) aroundCount
+	      FROM TOURGRADE
+	      WHERE no_spot = #{no}
+	      GROUP BY no_spot
+	</select>
+	
+	<insert id="insert" parameterType="TourGrade">
+		INSERT INTO tourgrade(no, no_dounor, no_spot, hice, photozon, facility, traffic, watch, around, together_good, no_together, no_review, regdate)
+		VALUES(tourgrade_seq.nextval, #{noDounor}, #{noSpot}, #{hice}, #{photozon}, #{facility}, #{traffic}, #{watch}, #{around}, '', '', '', systimestamp)
+	</insert>
+	
+</mapper>

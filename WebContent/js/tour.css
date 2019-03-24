@@ -1,0 +1,326 @@
+		body{
+            font: 16px "Kakao","Noto Sans KR","나눔고딕",NanumGothic,"맑은고딕","Malgun Gothic",
+            "돋움",Dotum,"Helvetica Neue",Helvetica,AppleSDGothicNeo,sans-serif,"Apple Color Emoji",
+            "Segoe UI Emoji",NotoColorEmoji,"Segoe UI Symbol","Android Emoji",EmojiSymbols;
+        }
+    
+        #hiroSearch {
+            width: 100%;
+            height: 370px;
+            background-image: url(/../img/hiroImg.jpg);
+            background-size: 100% 100%;
+            opacity: .6;
+            margin-top: 70px;
+        }
+
+        .filter {
+            width: 940px;
+            height: 40px;
+            margin: auto;
+            /*background-color: #C69963;*/
+            text-align: center;
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .filter li, .filter li img {
+            vertical-align: middle;
+        }
+
+        .filterDetail {
+            width: 960px;
+            height: 40px;
+            margin: auto;
+            position: relative;
+            /*border: 2px solid #5D4037;*/
+            /*background-color: green;*/
+        }
+        .filterDetail span {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 30px;
+        }
+        .filterDetail .f {
+            position: absolute;
+            left: 10px;
+        }
+        .filterLine:hover {
+            cursor: pointer;
+        }
+        .filterLine {
+            width: 956px;
+            height: 36px;
+            border: 2px solid #5D4037;
+            margin-top: 20px;
+        }
+        .filterBtn {
+            position: absolute;
+            right: 10px;
+            background-color: transparent;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .filterContents {
+            width: 956px;
+            height: 200px;
+            position: absolute;
+            border: 2px solid #5D4037;
+            top: 40px;
+            margin-top: 2px;
+            display: none;
+
+        }
+
+        .travelStyle {
+            width: 956px;
+            height: 50px;
+            /*background-color: green;*/
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .travelStyle>span {
+            /*display: inline-block;*/
+            width: 100px;
+            height: 36px;
+            text-align: center;
+            line-height: 36px;
+            float: left;
+        }
+        .travelStyle>ul>li {
+            width: 110px;
+            height: 36px;
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            line-height: 35px;
+            margin-bottom: 10px;
+            margin-left: 2px;
+            /*background-color: #C69963;*/
+        }
+
+        .colorT {
+            color: #fff;
+            border-radius: 19px;
+            background-color: #8D6E63;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        #attractionContents {
+            width: 960px;
+            /*background-color: green;*/
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 90px;
+        }
+        .smallFilter {
+            width: 180px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            /*background-color: #C69963;*/
+        }
+        .smallFilter a, .smallFilter img {
+            vertical-align: middle;
+        }
+        .smallFilter a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+        .attractionsSearch {
+            width: 470px;
+            height: 55px;
+      		position: absolute;
+      		margin: auto;
+      		margin-left: 400px;
+      		margin-top: 150px;
+            /*display: inline-block;*/
+            /*background-color: #81D4FA;*/
+            /*background-color: red;*/
+        }
+        .attractionsSearch>input {
+            width: 400px;
+            height: 50px;
+            padding-left: 5px;
+            border-radius: 25px;
+            border: 1px solid #424242;
+            outline: none;
+            font-size: 30px;
+             vertical-align:top;
+        }
+        .attractionsSearch .attractionsSearchBtn{
+            width: 50px;
+            height: 50px;
+            border: 1px solid #424242;
+            border-radius: 25px;
+            outline: 0;
+            cursor: pointer;
+        }
+        .attractionsSearch .attractionsSearchBtn:active{
+            transform: scale(.9);
+        }
+        .fa-search:hover {
+            background-color: #000;
+        }
+        .attractionsAddBtn{
+        	font-family: "Kakao", "sans-serif";
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            top: 390px;
+            right: 180px;
+            display: inline-block;
+            text-align: center;
+            font-size: 15px;
+            border-radius: 20px;
+            background-color: #392613;
+            color: #fff;
+            cursor: pointer;
+            border: none;
+            outline: 0;
+            transition: .2s ease;
+        }
+        .attractionsAddBtn:hover {
+        	box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+        	transform: scale(1.2);
+        	font-size: 17px;
+        	font-weight: bold;
+        }
+        .attractionsAddBtn>a{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .attractionsAll {
+            width: 960px;
+            height: auto;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        /*컨텐츠영역*/
+
+        .attractionBox {
+            margin: 10px 15px;
+            float: left;
+            width: 290px;
+            height: 280px;
+            border-radius: 3px;
+            background-color: #424242;
+        }
+        .box {
+            width: 290px;
+            height: 200px;
+            position: relative;
+        }
+
+        .box .attractionImg img {
+            width: 290px;
+            height: 200px;
+        }
+
+        .box_m {
+            position: relative;
+            width: 288px;
+            height: 78px;
+            background-color: white;
+            border: 1px #BDBDBD solid;
+        }
+        .box .attractionStar {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 0;
+            top: 2px;
+        }
+
+        .box_m .attractionHeart {
+           position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 0;
+            bottom: 2px;
+        }
+        .attractionBox .user {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        .tourName {
+            position: absolute;
+            width: 150px;
+            height: 25px;
+            top: 10px;
+            left: 55px;
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .tourName a {
+        	color: black;
+        	text-decoration: none;
+        }
+        .money {
+            position: absolute;
+            bottom:5px;
+            right: 85px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .attractionNickname {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            /* border: 1px solid #424242;*/
+            left: 10px;
+            bottom: 5px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .hashBox{
+        	width: 280px;
+        	height: 20px;
+        	 position: absolute;
+            bottom: 6px;
+            right: 6px;
+        }
+        .hash {
+            padding: 1px 5px;
+            width: 80px;
+            height: 20px;
+            background-color: #A1887F;
+            border-radius: 20px;
+            font-size: 15px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #424242;
+            line-height: 20px;
+            color: white;
+            float: left;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-left: 3px;
+        }
+        .iceAvg {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            top: 6px;
+            right: 35px;
+        }
+        .s1 {
+            position: absolute;
+            right:90px;
+        }
+
+        .s2 {
+            position: absolute;
+        }

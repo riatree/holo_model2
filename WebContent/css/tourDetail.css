@@ -1,0 +1,2126 @@
+body{
+            font-family: "Kakao", "sans-serif";
+        }
+        #contentsBox {
+            width: 1080px;
+            margin: auto;
+            margin-top: 70px;
+            padding-top: 20px;
+        }
+
+        #wraps {
+            width: 960px;
+            height: 70px;
+            margin: 30px auto;
+        }
+
+        #detailName .kor {
+            padding: 5px 10px;
+            font-size: 30px;
+            float: left;
+        }
+
+        #detailName .eng {
+            margin-top: 15px;
+            padding: 5px 10px;
+            font-size: 20px;
+            color: #424242;
+            float: left;
+        }
+
+        #detailTag {
+            position: relative;
+            width: 1080px;
+            height: auto;
+        }
+
+        .detailTag {
+            position: relative;
+            padding: 5px 10px;
+            display: block;
+            float: left;
+            color: #0D47A1;
+        }
+
+        #detailName {
+            float: left;
+            width: 1080px;
+            height: auto;
+            position: relative;
+        }
+
+        #detailName img {
+            cursor: pointer;
+        }
+
+        #detailName .star {
+            margin: 5px;
+            float: left;
+        }
+
+        #detailName .heart {
+            margin: 5px;
+            float: left;
+        }
+
+        .star:hover {
+            transform: scale(1.1);
+        }
+
+        .star:active {
+            transform: scale(.5);
+        }
+
+        .heart:hover {
+            transform: scale(1.1);
+        }
+
+        .heart:active {
+            transform: scale(.5);
+        }
+
+        #detailName button {
+            position: absolute;
+            right: 50px;
+        }
+
+        .updateBtn {
+            width: 70px;
+            height: 30px;
+            margin-right: 130px;
+            border: none;
+            outline: none;
+            background-color: #FFC107;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .writeBtn {
+            width: 70px;
+            height: 30px;
+            margin-right: 50px;
+            outline: none;
+            background-color: #FFC107;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+        }
+
+        .sirenBtn {
+            background: transparent;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .sirenBtn img {
+            width: 30px;
+            height: 30px;
+        }
+
+        #detailName span {
+            font-weight: bold;
+        }
+
+        #inf {
+            position: relative;
+            width: 900px;
+            height: 720px;
+            /*
+                        background-color: red;*/
+            /*clear: both;*/
+            margin: 10px auto;
+
+        }
+
+        #inf > div {
+            float: left;
+        }
+
+
+        #popup { /* 브라우저 전체를 덮는 팝업 만들기 */
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .8);
+            display: none;
+            z-index: 2;
+        }
+
+        #infPic {
+            width: 470px;
+            height: 300px;
+            position: relative;
+            /*float: left;*/
+            margin: 5px 7px 5px 8px;
+        }
+
+
+        #infPic .plus {
+            display: block;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            border-radius: 40px;
+            background-color: white;
+            position: absolute;
+            margin-left: 425px;
+            margin-top: 8px;
+            cursor: pointer;
+            border: 1px solid #BDBDBD;
+
+        }
+
+
+        #infPic .plus img {
+            position: absolute;
+            margin-left: 7.5px;
+            margin-top: 7.5px;
+
+            display: block;
+            width: 25px;
+            height: 25px;
+
+
+            cursor: pointer;
+
+        }
+
+        #infPic .plus:hover {
+            transform: scale(1.1);
+        }
+
+        #infPic .plus:active {
+            transform: scale(.9);
+        }
+
+        #infPic .popBtn {
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 130px;
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            line-height: 5px;
+            background-color: black;
+            opacity: .5;
+            outline: none;
+            cursor: pointer;
+            z-index: 1;
+            border: 3px solid black;
+            border-radius: 30px;
+        }
+
+        .popupPicView {
+            width: 470px;
+            height: 300px;
+            /*background-color: #FFC107;*/
+            overflow: hidden;
+        }
+
+        .popupPicAll {
+            position: relative;
+            width: 2820px;
+            height: 300px;
+            /*background-color: #ee9200;*/
+        }
+
+        .popupPicOne {
+            position: relative;
+            float: left;
+            width: 470px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .popupPicture img {
+            width: 470px;
+            height: 300px;
+        }
+
+        .popBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .popBtn:active {
+            transform: scale(.9);
+        }
+
+
+        #infPic .poprightBtn {
+            right: 0;
+        }
+
+        #infPic .popleftBtn {
+            left: 0;
+        }
+
+
+        #popupUser .user {
+
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            display: block;
+            right: 5px;
+            bottom: 5px;
+            cursor: pointer;
+        }
+
+        #popupPicAdd {
+            width: 500px;
+            height: 350px;
+            position: fixed;
+            background-color: white;
+            border-radius: 10px;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -150px;
+            display: none;
+            z-index: 2;
+        }
+
+        #popupPicAdd .photo {
+            width: 400px;
+            height: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+
+            /*background-color: #9d7a6d;*/
+        }
+
+        #popupPicAdd .sub {
+            display: block;
+            width: 200px;
+            height: 24px;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 15px auto;
+
+            text-align: center;
+            line-height: 24px;
+
+            /*background-color:?;*/
+            border-radius: 20px;
+        }
+
+        #popupPicAdd .upload {
+            display: block;
+            font-size: 15px;
+            font-weight: bold;
+
+            margin-top: 5px;
+            margin-left: 100px;
+        }
+
+        #popupPicAdd .photoBox {
+            width: 300px;
+            height: 200px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -50px;
+            border: 1px solid #424242;
+
+            /*background-color: #00bb00;*/
+        }
+
+        #popupMenuAdd {
+            width: 500px;
+            min-height: 300px;
+            position: absolute;
+            background-color: white;
+            border-radius: 10px;
+            left: 50%;
+            top: 90%;
+            margin-left: -250px;
+            margin-top: -150px;
+            display: none;
+            z-index: 3;
+        }
+
+        .add {
+            width: 200px;
+            height: 20px;
+            text-align: center;
+            /*background-color: red;*/
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            position: relative;
+
+            left: 50%;
+            margin-left: -100px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+
+        #popupMenuAdd .menuAddInf input {
+            float: left;
+            width: 100px;
+            height: 14px;
+        }
+
+        #popupPicAdd .addInf input {
+            width: 220px;
+            height: 18px;
+        }
+
+        .addInf button {
+            width: 60px;
+            height: 20px;
+            /*background-color: #64FFDA;*/
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .addBtn {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            display: block;
+            /*background-color: #FFC107;*/
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            left: 50%;
+            bottom: 10px;
+            margin-left: 170px;
+
+        }
+
+        .addPic {
+            position: absolute;
+            width: 200px;
+            height: 150px;
+            left: 50%;
+            margin-left: -75px;
+            top: 35px;
+
+        }
+
+        .addPic img {
+            width: 200px;
+            height: 150px;
+        }
+
+        .addInf button:hover {
+            transform: scale(1.1);
+        }
+
+        .addInf button:active {
+            transform: scale(.9);
+        }
+
+        .addBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .addBtn:active {
+            transform: scale(.9);
+        }
+
+        #popupTog {
+            width: 530px;
+            height: 380px;
+            position: fixed;
+            background-color: white;
+            left: 50%;
+            top: 50%;
+            margin-left: -265px;
+            margin-top: -200px;
+            display: none;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        #popupTog .reaTogether {
+            position: relative;
+            width: 530px;
+            height: 280px;
+            /*background-color: #525252;*/
+        }
+
+        #popupTog .addTogether {
+            position: relative;
+            width: 530px;
+            height: 100px;
+            /*background-color: #9d7a6d;*/
+            float: left;
+        }
+
+        #popupTog .image {
+            width: 130px;
+            height: 100px;
+            position: absolute;
+            margin-left: 40px;
+            margin-top: 40px;
+            border-radius: 20px;
+
+            /*background-color: #9d7a6d;*/
+        }
+
+        #popupTog span {
+            font-size: 18px;
+            font-weight: bold;
+            /*background-color: #00E676;*/
+            position: absolute;
+            margin-left: 190px;
+            margin-top: 50px;
+        }
+
+        #popupTog .siren {
+            position: absolute;
+            right: 40px;
+            top: 10px;
+        }
+
+        #popupTog .date {
+            position: absolute;
+            width: 250px;
+            height: 10px;
+            /* background-color: #0000cc;*/
+            font-size: 16px;
+            margin-left: 220px;
+            margin-top: 75px;
+            color: #525252;
+            font-weight: bold;
+        }
+
+        #popupTog .applyBtn {
+            position: absolute;
+            width: 70px;
+            height: 20px;
+            display: block;
+            background-color: #FFC107;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            right: 30px;
+            margin-top: 105px;
+        }
+
+        #popupTog .applyBtn button {
+            width: 70px;
+            height: 20px;
+            display: block;
+            background-color: #FFC107;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .applyBtn:hover {
+            transform: scale(1.1);
+        }
+
+        .applyBtn:active {
+            transform: scale(.9);
+        }
+
+        #popupTog .personnel {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            font-size: 12px;
+            line-height: 20px;
+            margin-left: 370px;
+            margin-top: 250px;
+        }
+
+        #popupTog .gender {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            font-size: 14px;
+            margin-left: 400px;
+            margin-top: 240px;
+        }
+
+        #popupTog .gender img {
+            width: 30px;
+            height: 30px;
+        }
+
+        #popupTog .finish {
+            position: absolute;
+            width: 60px;
+            height: 18px;
+            font-size: 15px;
+            font-weight: bold;
+            margin-left: 435px;
+            margin-top: 250px;
+            color: #117700;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 15px;
+        }
+
+        #popupTog .user {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+        }
+
+        #popupTog #user1 {
+            margin-top: 170px;
+            margin-left: 50px;
+        }
+
+        #popupTog .user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        #popupTog .nickname {
+            padding: 5px 5px;
+            /*background-color: #673AB7;*/
+            position: absolute;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #popupTog #nickname1 {
+            margin-top: 175px;
+            margin-left: 105px;
+
+        }
+
+        #popupTog .content {
+            position: absolute;
+            width: 300px;
+            height: 60px;
+            padding: 10px 10px;
+            /*
+                    background-color: #9d7a6d;*/
+            margin-left: 170px;
+            margin-top: 150px;
+            border: 1px solid #BDBDBD;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+  
+
+        .endBtn {
+            position: absolute;
+            right: 9px;
+            top: 10px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: transparent;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .btn:active {
+            transform: scale(.9);
+        }
+
+        #popupTog .addTogether button {
+            width: 50px;
+            height: 100px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: transparent;
+            position: relative;
+        }
+
+        #popupTog .addTogether .userLeft {
+            position: relative;
+            left: 0;
+            float: left;
+        }
+
+        #popupTog .addTogether .userRight {
+            position: relative;
+            right: 0;
+            float: left;
+        }
+
+        #popupTog .addUser {
+            position: relative;
+            width: 86px;
+            height: 100px;
+            /*background-color: #f2bc00;
+            border: 1px solid  #525252;*/
+            float: left;
+        }
+
+        #popupTog .user {
+            position: absolute;
+            margin-left: 23px;
+            margin-top: 20px;
+        }
+
+        #popupTog .nickname {
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 60px;
+        }
+
+        #map {
+            width: 400px;
+            height: 300px;
+            position: relative;
+            /*float: left;*/
+            margin: 5px 7px 5px 8px;
+        }
+
+        #map img {
+            width: 400px;
+            height: 300px;
+        }
+
+        #dig {
+            width: 882px;
+            min-height: 200px;
+            /*background-color: #83be41;*/
+            position: relative;
+            /*float: left;*/
+            margin: 5px 7px 5px 8px;
+            border: 1px solid #BDBDBD;
+            border-radius: 8px;
+
+        }
+
+        #dig #digUserInf {
+            float: left;
+            width: 150px;
+            height: 200px;
+            position: relative;
+            /*background-color: #116644;*/
+        }
+
+        #dig img {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            margin: 10px 0 0 10px;
+            cursor: pointer;
+        }
+
+        #dig #digUser {
+            position: absolute;
+            padding: 1px 10px;
+            background-color: #FFC107;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px #424242;
+            font-size: 12px;
+            margin: 10px 0 0 60px;
+        }
+
+        #dig #nickname {
+            position: absolute;
+            padding: 2px 10px;
+            text-align: center;
+            line-height: 20px;
+            color: black;
+            font-weight: bold;
+            font-size: 12px;
+            margin: 30px 0 0 58px;
+        }
+
+        #dig #resInf {
+            float: left;
+            width: 720px;
+            min-height: 200px;
+            position: relative;
+            /*background-color: #64FFDA;*/
+            font-size: 14px;
+        }
+
+        #dig #resInf .subject {
+            display: block;
+            width: 100px;
+            min-height: 25px;
+            float: left;
+        }
+
+        #dig #resInf #resInfAddr {
+            width: 620px;
+            height: 25px;
+            /*background-color: red;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfTime {
+            width: 720px;
+            height: 25px;
+            /*background-color: #116644;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfType {
+            width: 720px;
+            height: 25px;
+            /*background-color: #FFC107;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfPrice {
+            width: 720px;
+            height: 25px;
+            /*background-color: #00bb00;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfSer {
+            width: 720px;
+            height: 40px;
+            /*background-color:#9d7a6d;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfSer .subject {
+            width: 100px;
+            height: 40px;
+        }
+
+        #dig #resInf #resInfInt {
+            width: 720px;
+            min-height: 65px;
+            /*background-color:blue;*/
+            line-height: 25px;
+        }
+
+        #dig #resInf #resInfInt .subject {
+            width: 100px;
+            height: 65px;
+        }
+
+
+        #menu {
+            width: 882px;
+            min-height: 200px;
+            /*background-color: #64FFDA;*/
+            position: relative;
+            margin: 5px 7px 5px 8px;
+            border: 1px solid #BDBDBD;
+            border-radius: 8px;
+        }
+
+        #menu .kor {
+            display: inline-block;
+            left: 12px;
+            top: 5px;
+            line-height: 35px;
+            font-size: 22px;
+            position: absolute;
+            /*background-color: #0000cc;*/
+        }
+
+        #menu .eng {
+            left: 75px;
+            top: 0;
+            font-size: 15px;
+            line-height: 50px;
+            position: absolute;
+            /*background-color: #00bb00;*/
+        }
+
+        #menu .menuPlus {
+            background-color: transparent;
+            position: absolute;
+            font-size: 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            text-align: center;
+            line-height: 30px;
+            right: 5px;
+            top: 5px;
+            z-index: 1;
+        }
+
+        #menu .menuPlus:hover {
+            transform: scale(1.1);
+        }
+
+        #menu .menuPlus:active {
+            transform: scale(.9);
+        }
+
+        #menuAll {
+            position: relative;
+            margin-left: 150px;
+            width: 700px;
+            min-height: 150px;
+            overflow: hidden;
+            /*background-color: red;*/
+        }
+
+        .tui-chart-chartExportMenu-area {
+            display: none;
+        }
+
+        .menuInf {
+            float: left;
+            width: 220px;
+            height: 30px;
+            border: 1px solid #E0E0E0;
+            border-radius: 20px;
+            margin: 10px 0 0 5px;
+            /*border-right: 1px solid #BDBDBD;
+            border-left: 1px solid #BDBDBD;*/
+            line-height: 30px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #hice {
+            width: 433px;
+            height: 250px;
+            /* background-color: #00bb00;*/
+            position: relative;
+            margin: 5px 7px 5px 8px;
+            border: 1px solid #BDBDBD;
+            border-radius: 8px;
+        }
+
+        #hice span {
+            position: absolute;
+            width: 200px;
+            height: 30px;
+            /*background-color: #FFC107;*/
+            margin-top: 10px;
+            left: 50%;
+            margin-left: -100px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #hice #hiceNum {
+            position: absolute;
+            /*background-color: red;*/
+            font-size: 40px;
+            right: 100px;
+            bottom: 100px;
+        }
+
+        #hice #hicePic {
+            margin-top: 5px;
+            margin-left: 20px;
+            position: absolute;
+            width: 180px;
+            height: 240px;
+            /*background-color: #116644;*/
+        }
+
+        #hice #hicePic :hover {
+            transform: scale(1.08);
+        }
+
+        #hice #hiceInf {
+            position: absolute;
+            width: 200px;
+            height: 20px;
+            /*background-color: #0000cc;*/
+            font-size: 18px;
+            right: 30px;
+            bottom: 70px;
+        }
+
+        #hicePic img {
+            width: 180px;
+            height: 240px;
+        }
+
+        #graph {
+            width: 433px;
+            height: 250px;
+            /*background-color: #116644;*/
+            position: relative;
+            margin: 5px 7px 5px 8px;
+            border: 1px solid #BDBDBD;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+
+        .tui-chart-chartExportMenu-area {
+            display: none;
+        }
+
+        #page {
+            width: 900px;
+            height: 30px;
+            /*background-color: red;*/
+            position: relative;
+            margin: auto;
+
+        }
+
+        .divReview {
+            position: relative;
+            width: 900px;
+            height: auto;
+            overflow: hidden;
+            /*background-color: #00ACC1;*/
+            margin: 10px auto;
+        }
+
+        .reviewBox_together {
+            position: relative;
+            width: 900px;
+            min-height: 200px;
+            /*background-color: #00bb00;*/
+            display: none;
+        }
+
+        .reviewOneBox {
+            /*background-color: #9d7a6d;*/
+            margin: 5px 7px 5px 8px;
+            float: left;
+            position: relative;
+            width: 433px;
+            min-height: 95px;
+            border: 1px solid #BDBDBD;
+            border-radius: 3px;
+        }
+
+        .reviewOneBox_together {
+            /*background-color: #673AB7;*/
+            margin: 5px 7px 5px 8px;
+            float: left;
+            position: relative;
+            width: 433px;
+            min-height: 190px;
+            border: 1px solid #BDBDBD;
+            border-radius: 3px;
+
+        }
+        
+        .reviewOneBox_together .reviewHeart {
+        	position:absolute;
+        	right:1px;
+        }
+
+        .boxBasic {
+            position: relative;
+            width: 433px;
+            height: 95px;
+            /*background-color: #64FFDA;*/
+        }
+
+        .boxBasic .image {
+            margin-top: 8px;
+            margin-left: 6px;
+            width: 100px;
+            height: 76px;
+        }
+
+        .boxBasic .date {
+            position: absolute;
+            width: 200px;
+            height: 25px;
+            top: 10px;
+            left: 115px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .boxBasic .content {
+            position: absolute;
+            width: 255px;
+            left: 115px;
+            top: 30px;
+            font-size: 14px;
+
+            /*background-color: #673AB7;*/
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            line-height: 1em;
+            height: 2.0em;
+
+        }
+
+        .boxBasic .personnel {
+            position: absolute;
+            width: 35px;
+            height: 20px;
+            font-size: 10px;
+            line-height: 20px;
+            bottom: 20px;
+            right: 10px;
+
+        }
+
+        .boxBasic .gender {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            font-size: 10px;
+            bottom: 35px;
+            right: 40px;
+        }
+
+        .boxBasic .gender img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .boxBasic .finish {
+            position: absolute;
+            width: 60px;
+            height: 18px;
+            /*
+                        background-color: #C69963;*/
+            font-size: 15px;
+            bottom: 1px;
+            right: 1px;
+            color: #117700;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 15px;
+            /*          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+        }
+
+        .boxTogether {
+            position: relative;
+            width: 433px;
+            min-height: 95px;
+            border-top: 1px solid #BDBDBD;
+            /*background-color: #FFC107;*/
+        }
+
+        .boxTogether .reviewMal {
+            position: absolute;
+            left: 15px;
+        }
+
+        .boxTogether .reviewIce {
+            position: absolute;
+            left: 25px;
+            top: 10px;
+        }
+
+        .boxTogether .reviewMal img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .boxTogether .reviewIce img {
+            width: 50px;
+            height: 45px;
+        }
+
+        .boxTogether .reviewFace {
+            position: absolute;
+            border-radius: 30px;
+            left: 5px;
+            bottom: 2px;
+            cursor:pointer;
+        }
+
+        .boxTogether .reviewFace img {
+            border-radius: 30px;
+        }
+
+        .boxTogether .reviewNick {
+            padding: 5px 5px;
+            position: absolute;
+            left: 35px;
+            bottom: 4px;
+            font-size: 13px;
+            /*background-color: #FFC107;*/
+        }
+
+        .boxTogether .reviewDay {
+            padding: 5px 5px;
+            position: absolute;
+            right: 80px;
+            bottom: 4px;
+            font-size: 14px;
+            /*background-color: #64FFDA;*/
+        }
+
+        .boxTogether .reviewContent {
+            position: absolute;
+            width: 300px;
+            left: 90px;
+            top: 16px;
+            font-size: 14px;
+
+            /*background-color: #673AB7;*/
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            line-height: 1.5em;
+            height: 3.0em;
+
+            cursor: pointer;
+        }
+
+        .boxTogether .reviewHeart {
+            position: absolute;
+            bottom: 5px;
+            cursor: pointer;
+        }
+
+        .boxTogether .reviewPic {
+            cursor: pointer;
+            position: absolute;
+            width: 27px;
+            height: 30px;
+            font-size: 20px;
+            /*background-color: #673AB7;*/
+            right: 53px;
+            bottom: 0;
+            color: #525252;
+        }
+
+        .reviewOneBox .reviewMal {
+            position: absolute;
+            left: 15px;
+        }
+
+        .reviewOneBox .reviewIce {
+            position: absolute;
+            left: 25px;
+            top: 10px;
+        }
+
+        .reviewOneBox .reviewMal img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .reviewOneBox .reviewIce img {
+            width: 50px;
+            height: 45px;
+        }
+
+        .reviewOneBox .reviewFace {
+            position: absolute;
+            border-radius: 30px;
+            left: 5px;
+            bottom: 2px;
+        }
+
+        .reviewOneBox .reviewFace img {
+            border-radius: 30px;
+        }
+
+        .reviewOneBox .reviewNick {
+            padding: 5px 5px;
+            position: absolute;
+            left: 35px;
+            bottom: 4px;
+            font-size: 13px;
+            /*background-color: #FFC107;*/
+        }
+
+        .reviewOneBox .reviewDay {
+            padding: 5px 5px;
+            position: absolute;
+            right: 80px;
+            bottom: 4px;
+            font-size: 14px;
+            /*background-color: #64FFDA;*/
+        }
+
+        .reviewOneBox .reviewContent {
+            position: absolute;
+            width: 300px;
+            left: 90px;
+            top: 16px;
+            font-size: 14px;
+
+            /*background-color: #673AB7;*/
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            line-height: 1.5em;
+            height: 3.0em;
+
+            cursor: pointer;
+        }
+
+        .reviewOneBox .reviewHeart {
+            position: absolute;
+            right: 1px;
+            bottom: 5px;
+            cursor: pointer;
+        }
+
+        .reviewOneBox .reviewPic {
+            cursor: pointer;
+            position: absolute;
+            width: 27px;
+            height: 30px;
+            font-size: 20px;
+            /*background-color: #673AB7;*/
+            right: 50px;
+            bottom: 0;
+            color: #525252;
+        }
+
+        .reviewWriteBtn {
+            position: relative;
+            width: 70px;
+            height: 30px;
+            margin-bottom: 20px;
+            margin-left: 820px;
+            outline: none;
+            background-color: #FFC107;
+            border: none;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+        }
+
+        .filter {
+            position: relative;
+            width: 910px;
+            height: 30px;
+            /*background-color: #FFC107;*/
+            font-size: 14px;
+            color: #525252;
+            font-weight: bold;
+        }
+
+        .filter button {
+
+            border: none;
+            outline: none;
+
+            font-size: 15px;
+
+            background-color: transparent;
+        }
+
+        .filter button:hover {
+            transform: scale(1.04);
+        }
+
+        .filter button:active {
+            transform: scale(.9);
+        }
+
+        .filter .review {
+            position: absolute;
+            width: 130px;
+            height: 30px;
+            /*background-color: #0000cc;*/
+            left: 5px;
+        }
+
+        .filter .review #review_basic {
+            float: left;
+        }
+
+        .filter .review span {
+            display: block;
+            float: left;
+            /*background-color: #13203a;*/
+        }
+
+        .filter .review #review_together {
+            float: left;
+        }
+
+        .filter .type {
+            position: absolute;
+            width: 130px;
+            height: 30px;
+            /*background-color: #00E676;*/
+            right: 0;
+        }
+
+        .filter .type #review_lastest {
+            float: left;
+        }
+
+        .filter .type span {
+            display: block;
+            float: left;
+            /*background-color: #13203a;*/
+        }
+
+        .filter .type #review_best {
+            float: left;
+        }
+
+        .divTogether {
+            position: relative;
+            width: 900px;
+            height: 140px;
+            /*background-color: #00bb00;*/
+            margin: 10px auto;
+        }
+
+        .divTitle {
+            position: relative;
+            width: 910px;
+            height: 30px;
+            /*background-color: red;*/
+            font-size: 14px;
+            color: #525252;
+            font-weight: bold;
+
+        }
+
+        .divTogether .title {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            /*background-color: #0000cc;*/
+            left: 15px;
+        }
+
+        .divHlog .title {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            /*background-color: #0000cc;*/
+            left: 15px;
+        }
+
+        .divTitle .moreTogether {
+            position: absolute;
+            width: 55px;
+            height: 40px;
+            /*background-color: #0000cc;*/
+            right: 5px;
+        }
+
+        .togetherView {
+            position: absolute;
+            width: 900px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        .togetherContents {
+            width: 2700px;
+            height: 100px;
+            position: relative;
+    		transition: .2s ease;
+        }
+
+        .together {
+            margin: 5px 7px 5px 8px;
+            float: left;
+            position: relative;
+            width: 433px;
+            height: 95px;
+            border: 1px solid #BDBDBD;
+            border-radius: 3px;
+        }
+
+        .together .image {
+            margin-top: 8px;
+            margin-left: 6px;
+            width: 100px;
+            height: 76px;
+        }
+
+        .together .date {
+            position: absolute;
+            width: 200px;
+            height: 25px;
+            top: 10px;
+            left: 115px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .siren {
+            position: absolute;
+            right: 8px;
+            top: 5px;
+        }
+
+        .tag {
+        	position:absolute;
+        	padding: 1px 6px;
+		    border-radius: 20px;
+		    font-size: 12px;
+		    text-decoration: none;
+		    color: #0D47A1;
+		    max-width: 75px;
+		    height: 20px;
+		    line-height: 20px;
+		    display: inline-block;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    left:115px;
+		    bottom:5px;
+        }
+        
+         .together .s2 {
+        	left: 190px;
+        }
+        
+        .together .content {
+            position: absolute;
+            width: 255px;
+            left: 115px;
+            top: 30px;
+            font-size: 13px;
+
+            /*background-color: #673AB7;*/
+
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 라인수 */
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+            line-height: 13px;
+            height: 2.0em;
+        }
+
+        .together .personnel {
+            position: absolute;
+            width: 35px;
+            height: 20px;
+            font-size: 10px;
+            line-height: 20px;
+            bottom: 20px;
+            right: 2px;
+
+        }
+
+        .together .gender {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            font-size: 10px;
+            bottom: 35px;
+            right: 40px;
+        }
+
+        .together .gender img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .together .finish {
+            position: absolute;
+            width: 60px;
+            height: 18px;
+            /*
+                        background-color: #C69963;*/
+            font-size: 15px;
+            bottom: 1px;
+            right: 1px;
+            color: #117700;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 15px;
+            /*          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+        }
+
+        .divHlog {
+            width: 900px;
+            height: 320px;
+            /*background-color: brown;*/
+            margin: 50px auto;
+            /*background-color: #00ACC1;*/
+            position: relative;
+        }
+
+        .HlogView {
+            width: 900px;
+            height: 280px;
+            /*background-color: hotpink;*/
+            overflow: hidden;
+        }
+
+        .HlogContents {
+            width: 2700px;
+            height: 320px;
+            position: relative;
+            transition: .2s ease;
+        }
+
+        .hlog {
+            margin: auto 5px;
+            float: left;
+            position: relative;
+            width: 290px;
+            height: 280px;
+            border-radius: 3px;
+
+        }
+
+        .hlog .user {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .hlogName {
+            position: absolute;
+            width: 100px;
+            height: 25px;
+            top: 10px;
+            left: 55px;
+            font-weight: bold;
+        }
+
+        .hlogNickname {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            /* border: 1px solid #424242;*/
+            left: 10px;
+            bottom: 5px;
+        }
+
+
+        .divAttractions .title {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            /*background-color: #0000cc;*/
+            left: 15px;
+        }
+
+        .divAttractions {
+            width: 900px;
+            height: 320px;
+            /*background-color: brown;*/
+            margin: 60px auto;
+            /*background-color: #00ACC1;*/
+            position: relative;
+        }
+
+        .attractionsView {
+            width: 900px;
+            height: 280px;
+            /*background-color: hotpink;*/
+            overflow: hidden;
+        }
+
+        .attractionsContents {
+            width: 2700px;
+            height: 320px;
+            position: relative;
+            transition: .3s ease;
+        }
+
+        .attractions {
+            margin: auto 5px;
+            float: left;
+            position: relative;
+            width: 290px;
+            height: 280px;
+            border-radius: 3px;
+        }
+        
+        .attractionRealWon{
+            position: absolute;
+            width: 100px;
+            height: 25px;
+            bottom:0;
+            left: 100px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .attractionRealWonNum{
+            display: none;
+        }
+        .realWon {
+            float: right;
+        }
+       
+        
+
+        .attractions .user {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .attractionsName {
+            position: absolute;
+            width: 150px;
+            height: 25px;
+            top: 10px;
+            left: 55px;
+            font-weight: bold;
+        }
+
+        .attractionsNickname {
+            position: absolute;
+            width: 100px;
+            height: 20px;
+            /* border: 1px solid #424242;*/
+            left: 10px;
+            bottom: 5px;
+        }
+
+        .box {
+            width: 290px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .hlogImg {
+            width: 290px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .hlogImg img{
+        	width: 290px;
+            height: 200px;
+        }
+        
+        .attractionImg {
+        	width: 290px;
+            height: 200px;
+            position: relative;
+        }
+        
+        .attractionImg img{
+        	width: 290px;
+            height: 200px;
+        }
+
+        .box_m {
+            position: relative;
+            width: 288px;
+            height: 78px;
+            background-color: white;
+            border: 1px #BDBDBD solid;
+        }
+
+        .hash {
+		    background-color: coral;
+		    border-radius: 20px;
+		    font-size: 15px;
+		    text-decoration: none;
+		    color: #fff;
+		    max-width: 75px;
+		    height: 20px;
+		    line-height: 20px;
+		    display: inline-block;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+        }
+
+        .s1 {
+            position: absolute;
+            right: 90px;
+        }
+
+        .s2 {
+            position: absolute;
+        }
+
+        .ice {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            top: 6px;
+            right: 35px;
+        }
+
+        .box .hlogStar {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 5px;
+            top: 2px;
+        }
+
+        .box_m .hlogHeart {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 0;
+            bottom: 2px;
+        }
+
+        .box .attractionsStar {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 5px;
+            top: 2px;
+        }
+
+        .box_m .attractionsHeart {
+            position: absolute;
+            width: 50px;
+            height: 20px;
+            right: 0;
+            bottom: 2px;
+        }
+
+        .attraction {
+            position: relative;
+            width: 1020px;
+            height: 300px;
+            background-color: #673AB7;
+            margin: 50px auto;
+        }
+        
+        .money {
+            position: absolute;
+            bottom:5px;
+            right: 85px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        #popupReview {
+            width: 530px;
+            height: 380px;
+            position: fixed;
+            background-color: white;
+            left: 50%;
+            top: 50%;
+            margin-left: -265px;
+            margin-top: -200px;
+            display: none;
+            border-radius: 10px;
+        }
+
+        .contentsBtn {
+            position: absolute;
+            cursor: pointer;
+            height: 10px;
+            outline: 0;
+            font-size: 20px;
+        }
+
+        .togetherLeftBtn {
+            left: -15px;
+            top: 75px;
+
+        }
+
+        .togetherRightBtn {
+            right: -15px;
+            top: 75px;
+        }
+
+        .HlogLeftBtn {
+            left: -15px;
+            top: 150px;
+        }
+
+        .HlogRightBtn {
+            right: -15px;
+            top: 150px;
+        }
+
+        .attractionsLeftBtn {
+            left: -15px;
+            top: 150px;
+        }
+
+        .attractionsRightBtn {
+            right: -15px;
+            top: 150px;
+        }
+
+        /* reviewpopup */
+
+        #reviewContents {
+            position: fixed;
+            width: 458px;
+            min-height: 500px;
+            top: 50%;
+            left: 50%;
+            margin: -400px 0 0 -229px;
+            padding: 20px;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 10px;
+            background-color: white;
+			z-index:2;
+            display: none;
+        }
+
+        #reviewTitle {
+            font-size: 25px;
+            text-align: center;
+            position: relative;
+            /*border: 1px solid #424242;*/
+        }
+
+        .reviewPicContents {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reviewPicList {
+            width: 1372.5px;
+            height: 270px;
+            position: relative;
+            /*border: 1px solid #424242;*/
+
+        }
+
+        .reviewPicList li {
+            float: left;
+            position: relative;
+        }
+
+        .reviewPic {
+            width: 457.5px;
+            transition: .2s ease;
+            position: relative;
+        }
+
+        .reviewPicUser {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            border-radius: 40px;
+            bottom: 15px;
+            right: 5px;
+            cursor: pointer;
+        }
+
+        .picBtn {
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            background-color: #FFF;
+            border: 1px solid #424242;
+            border-radius: 50%;
+            outline: 0;
+        }
+
+        .picBtnLeft {
+            left: 0;
+            z-index: 1;
+        }
+
+        .picBtnRight {
+            right: 0;
+        }
+
+        .picBtn > i {
+            font-size: 15px;
+        }
+
+        #personReview {
+            min-height: 150px;
+            position: relative;
+            margin: auto;
+        }
+
+        .otherPerson {
+            position: relative;
+            width: 457.5px;
+            min-height: 90px;
+            border-top: 1px dotted #7CB342;
+        }
+
+        .reviewUser {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            cursor: pointer;
+
+        }
+
+        .reviewNickname {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            left: 10px;
+            top: 70px;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .reviewHice {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            left: 55px;
+            top: 20px;
+        }
+
+        .reviewDate {
+            position: absolute;
+            width: 200px;
+            height: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            top: 3px;
+            left: 110px;
+        }
+
+        .reviewContentsBox {
+            width: 310px;
+            min-height: 60px;
+            /*position: relative;*/
+            /*top: 30px;*/
+            /*left: 110px;*/
+            margin: 20px 0px 10px 110px;
+            /*border: 1px solid #424242;*/
+        }
+
+        .reviewContents {
+            position: relative;
+            width: 285px;
+            min-height: 30px;
+            font-size: 13px;
+            top: 5px;
+            background-color: #dedede;
+            padding: 10px;
+            border-radius: 10px;
+            word-break: break-all;
+            /*border: 1px solid #795548;*/
+            text-align: justify;
+            white-space: pre-wrap;
+        }
+
+        .reviewSiren {
+            position: absolute;
+            border: none;
+            outline: 0;
+            top: 5px;
+            right: 4px;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        .reviewTopHeart {
+            position: absolute;
+            bottom: 0;
+            right: 25px;
+            cursor: pointer;
+
+            font-size: 22px;
+        }
+
+        .closeBtn {
+            position: absolute;
+            right: -5px;
+            border: none;
+            background-color: transparent;
+            font-size: 20px;
+            cursor: pointer;
+            outline: 0;
+            /*border: 1px solid #424242;*/
+        }
+        .addMenu{
+            text-align: center;
+        }
+        .addMenu i{
+            cursor:pointer;
+        }
+        .addMenu input {
+            border-radius: 10px;
+            padding: 5px;
+        }
+        .addMenu span {
+            font-size: 15px;
+        }
+        .menuList{
+            width:480px;
+            overflow: hidden;
+            /*background-color: #FFC107;*/
+        }
+        .menuList li{
+            padding: 5px 5px;
+            border: 1px solid #BDBDBD;
+            border-radius: 20px;
+            text-align: center;
+            line-height: 20px;
+            width: 280px;
+            height: 20px;
+            float: left;
+            margin-top: 15px;
+            margin-left: 115px;
+            /*background-color: #00bb00;*/
+
+            font-size: 18px;
+        }
+
+        .menuList button {
+
+            position: absolute;
+            cursor: pointer;
+            outline: 0;
+            background-color: transparent;
+            font-size: 15px;
+            border-radius: 10px;
+            margin-left: 5px;
+
+        }
+        
+        a {
+        	text-decoration:none;
+        	color: #525252;
+        }

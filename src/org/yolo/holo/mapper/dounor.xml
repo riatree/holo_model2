@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dounor">
+
+	<select id="selectDounorProfile" parameterType="int" resultType="Dounor">
+		SELECT no,nickname, profile, pink, green, red, chco, orange, blue, white, yellow 	
+		FROM dounor
+		WHERE no = #{no}
+	</select>
+	
+	<select id="selectLogin" resultType="Dounor" parameterType="Dounor">
+		SELECT no, name, birth_date birthDate, gender, id, pwd, nickname, email, phone, profile, blacklist, regdate
+		FROM dounor
+		WHERE id = #{id} AND pwd = #{pwd}
+	</select>
+
+	<select id="selectCheckId" resultType="int" parameterType="String">
+		SELECT COUNT (*)
+		FROM dounor
+		WHERE id = #{id}
+	</select>
+	
+	<select id="selectCheckNickname" resultType="int" parameterType="String">
+		SELECT COUNT (*)
+		FROM dounor
+		WHERE nickname = #{nickname}
+	</select>
+	
+	<insert id="insert" parameterType="Dounor">
+		<selectKey order="BEFORE" keyProperty="no" resultType="int">
+			SELECT dounor_seq.nextval
+			FROM dual
+		</selectKey>
+			INSERT INTO dounor(no, name, birth_date, gender, id, pwd, nickname, email, phone, profile, blacklist, regdate)
+			VALUES (#{no},#{name},#{birthDate},#{gender},#{id},#{pwd}, #{nickname}, #{email},#{phone},#{profile},#{blacklist},SYSTIMESTAMP)
+	</insert>
+	
+		<!-- 프로필 핑크 도넛과 함께 업데이트 -->
+	<update id="updatePink" parameterType="int"> 
+		UPDATE dounor
+		SET pink = #{no}
+	</update>
+	
+	<!-- 프로필 그린 도넛과 함께 업데이트 -->
+	<update id="updateGreen" parameterType="int"> 
+		UPDATE dounor
+		SET green = #{no}
+	</update>
+		
+	<!-- 프로필 레드 도넛과 함께 업데이트 -->
+	<update id="updateRed" parameterType="int"> 
+		UPDATE dounor
+		SET red = #{no}
+	</update>
+	
+	<!-- 프로필 초코 도넛과 함께 업데이트 -->
+	<update id="updateChco" parameterType="int"> 
+		UPDATE dounor
+		SET chco = #{no}
+	</update>
+	
+	<!-- 프로필 오렌지 도넛과 함께 업데이트 -->
+	<update id="updateOrange" parameterType="int"> 
+		UPDATE dounor
+		SET orange = #{no}
+	</update>
+	
+	<!-- 프로필 블루 도넛과 함께 업데이트 -->
+	<update id="updateBlue" parameterType="int"> 
+		UPDATE dounor
+		SET blue = #{no}
+	</update>
+	
+	<!-- 프로필 화이트 도넛과 함께 업데이트 -->
+	<update id="updateWhite" parameterType="int"> 
+		UPDATE dounor
+		SET white = #{no}
+	</update>
+	
+	<!-- 프로필 옐로 도넛과 함께 업데이트 -->
+	<update id="updateYellow" parameterType="int"> 
+		UPDATE dounor
+		SET yellow = #{no}
+	</update>
+	
+	
+	
+</mapper>

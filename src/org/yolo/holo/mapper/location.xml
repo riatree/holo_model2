@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="location">
+	<select id="selectOne" resultType="Location" parameterType="int">
+		SELECT no, name, parallax, direct_time directTime, good_date goodDate,
+		emergency, voltage, language, money, guidebook, img, regdate
+		FROM
+		location
+		WHERE no = #{ no }
+	</select>
+	<select id="selectRegion1" resultType="Location">
+		SELECT no, name, img
+		FROM
+		LOCATION
+		WHERE no BETWEEN 1 AND 30
+	</select>
+
+	<select id="selectRegion2" resultType="Location">
+		SELECT no,name,img
+		FROM
+		LOCATION
+		WHERE no BETWEEN 31 AND 60
+	</select>
+
+	<select id="selectRegion3" resultType="Location">
+		SELECT no,name,img
+		FROM
+		LOCATION
+		WHERE no BETWEEN 61 AND 90
+	</select>
+
+	<select id="selectRegion4" resultType="Location">
+		SELECT no,name,img
+		FROM
+		LOCATION
+		WHERE no BETWEEN 91 AND 120
+	</select>
+
+	<select id="selectRegion5" resultType="Location">
+		SELECT no,name,img
+		FROM
+		LOCATION
+		WHERE no BETWEEN 121 AND 150
+	</select>
+
+	<!-- location 검색 -->
+	<select id="selectKeyword" resultType="Location" parameterType="String">
+		SELECT no, name
+		FROM location
+		WHERE name LIKE #{name}
+	</select>
+
+</mapper>

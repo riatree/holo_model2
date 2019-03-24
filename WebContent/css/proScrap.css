@@ -1,0 +1,494 @@
+@charset "UTF-8";
+
+/*스크랩*/
+.scrapContents{
+    width: 1080px;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+    display: none;
+}
+#scrapSearchList{
+    position: relative;
+    width: 1080px;
+    height: 60px;
+
+}
+#scrapSearch{
+    position: absolute;
+    width: 156px;
+    height: 30px;
+    right:56px;
+    top: 20px;
+}
+#scrapSearchBtn{
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+/*공통*/
+.scrapTitleBox{
+    width: 1080px;
+    height: 50px;
+    position: relative;
+}
+.scrapName{
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    left: 50px;
+    margin-top: 15px;
+}
+
+.scrapAmount{
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 130px;
+    margin-top: 15px;
+    color: #FF8F00;
+}
+.scrapDetail{
+    position: absolute;
+    right: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 130px;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.scrapBox {
+    width: 290px;
+    height: 280px;
+    background-color: #424242;
+    position: relative;
+    float: left;
+    margin-right: 45px;
+}
+
+.scrapBox_m {
+    position: relative;
+    width: 288px;
+    height: 78px;
+    background-color: white;
+    border: 1px #BDBDBD solid;
+    margin-top: 200px;
+}
+.scrapIce {
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    top: 6px;
+    right: 35px;
+}
+.scrapS1 {
+    position: absolute;
+    right:100px;
+}
+.scrapS2 {
+    position: absolute;
+    right:10px;
+}
+.hashBox{
+           width: 280px;
+           height: 20px;
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+        }
+        .hash {
+            padding: 1px 5px;
+            width: 80px;
+            height: 20px;
+            background-color: #A1887F;
+            border-radius: 20px;
+            font-size: 15px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #424242;
+            line-height: 20px;
+            color: white;
+            float: left;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            margin-left: 3px;
+        }
+.scrapUser {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.scrapBtn {
+    width: 60px;
+    height: 280px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 60px;
+}
+.scrapBtnResion{
+    width: 60px;
+    height: 225px;
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 40px;
+}
+
+.scrapLeftBtn {
+    left: 0px;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.scrapRightBtn {
+    left: 1020px;
+    outline: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/*여행지*/
+#scrapRegionbox{
+    width: 960px;
+    height: 200px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+
+#scrapRegionList{
+    width: auto;
+    height: 202px;
+    position: relative;
+}
+.scrapLocationOne{
+    position: relative;
+    width: 240px;
+    height: 200px;
+    float: left;
+    margin: 0 40px;
+    border-radius: 5px;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+}
+
+.scrapLocationOne>img {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.scrapLocationName {
+    position: relative;
+    width: 240px;
+    height: 200px;
+}
+
+.scrapLocationName a {
+    display: block;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 200px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.scrapLocationImg {
+    width: 240px;
+    height: 200px;
+    position: absolute;
+}
+
+.scrapLocationImg img{
+    width: 240px;
+    height: 200px;
+}
+
+.scrapLocationOne .scrapStar {
+    cursor: pointer;
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    right: 2px;
+    top: 0;
+}
+.scrapStar>img {
+    width: 30px;
+    height: 30px;
+}
+.scrapIceBox {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    border: 1px solid white;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+
+
+
+
+/*관광명소*/
+
+#scrapAttractionBox{
+    width: 960px;
+    height: 280px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+     
+}
+
+#scrapAttractionList{
+    width: auto;
+    height: 280px;
+    position: relative;
+  
+}
+.scrapAttraction {
+    margin: 0 15px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 3px;
+    color:#000;
+    transition: .2s ease;
+}
+.scrapBox .scrapAttractionImg img {
+    width: 290px;
+    height: 200px;
+}
+.scrapBox .scrapAttractionStar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+}
+
+.scrapBox_m .scrapAttractionHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+.scrapAttractionName {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color:#000;
+    text-decoration: none;
+}
+.scrapMoney{
+     position: absolute;
+            bottom:5px;
+            right: 85px;
+            font-weight: bold;
+            margin-bottom: 5px;   
+}
+.scrapAttractionNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+/*음식점*/
+
+#scrapRestaurantBox{
+    width: 960px;
+    height: 280px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+
+#scrapRestaurantList{
+    width: auto;
+    height: 280px;
+    position: relative;
+}
+.scrapRestaurant {
+    margin: 0 15px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 3px;
+    color:#000;
+}
+
+
+.scrapBox .scrapRestaurantImg img {
+    width: 290px;
+    height: 200px;
+}
+
+
+.scrapBox .scrapRestaurantStar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+}
+
+.scrapBox_m .scrapRestaurantHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+
+.scrapRestaurantName {
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+    color:#000;
+}
+.scrapRestaurantRealWon{
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    bottom:0;
+    right: 80px;
+    font-weight: bold;
+}
+.scrapRealWon {
+    float: right;
+}
+.scrapRestaurantNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+
+/*Hlog*/
+
+
+#scrapHLogBox{
+    width: 960px;
+    height: 280px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    margin-left: 60px;
+}
+#scrapHLogList{
+    width: auto;
+    height: 280px;
+    position: relative;
+}
+.scrapHlog {
+    margin: 0 15px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 290px;
+    border-radius: 3px;
+    color:#000;
+}
+.scrapBox .scrapHlogImg img {
+    width: 290px;
+    height: 200px;
+}
+.scrapBox .scrapHlogStar {
+    position: absolute;
+    width: 70px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+}
+
+.scrapBox_m .scrapHlogHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+.scrapHlogName {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+    color:#000;
+}
+.scrapHlogNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

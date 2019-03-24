@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+
+/*hlog*/
+.proHLog{
+    width: 1010px;
+    margin: auto;
+    /*background-color: #AED581;*/
+    border-left: 1px solid #424242;
+    border-right: 1px solid #424242;
+    display: none;
+}
+#hLogContent {
+    width: 1010px;
+    /*background-color: red;*/
+    overflow: hidden;
+}
+.proHLog .hlog {
+    margin: 20px 23.33px;
+    float: left;
+    position: relative;
+    width: 290px;
+    height: 280px;
+    border-radius: 3px;
+    color: #000;
+}
+.proHlog .hlogNext{
+   width: 290px;
+   height: 280px;
+   display: inline-block;
+}
+.proHLog .box {
+    width: 290px;
+    height: 200px;
+    position: relative;
+}
+
+.proHLog .box .hlogImg {
+    width: 290px;
+    height: 200px;
+}
+
+.proHLog .box_m {
+    position: relative;
+    width: 288px;
+    height: 78px;
+    background-color: white;
+    border: 1px #BDBDBD solid;
+}
+.proHLog .box .hlogStar {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    top: 2px;
+    color:#000;
+}
+.proHLog .hash {
+    width: 80px;
+    height: 20px;
+    background-color: coral;
+    border-radius: 20px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    float: left;
+    display: block;
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    overflow: hidden;
+    white-space: nowrap; /*아래로 내려가는거 막기*/
+    text-overflow: ellipsis;
+}
+.proHLog .s1 {
+    position: absolute;
+    right:100px;
+    text-decoration: none;
+}
+
+.proHLog .s2 {
+    position: absolute;
+    text-decoration: none;
+    right:10px;
+}
+
+.proHLog .box_m .hlogHeart {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    right: 0;
+    bottom: 2px;
+}
+.proHLog .hlog .user {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+.proHLog .hlogName {
+    position: absolute;
+    width: 150px;
+    height: 25px;
+    top:10px;
+    left: 55px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.proHLog .hlogNickname {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    /* border: 1px solid #424242;*/
+    left: 10px;
+    bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.proHLog .ice {
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    top: 6px;
+    right: 35px;
+}
+#emptyHlogListBox{
+   height: 300px;
+}
+
+#emptyHlogList{
+   text-align: center;
+   font-size: 50px;
+   line-height: 260px;
+}

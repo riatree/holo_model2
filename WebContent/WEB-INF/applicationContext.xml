@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd">
+	
+	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/jdbc/oracle" />
+
+	<!-- SqlSessionFactory 설정 -->
+	<bean id="sqlSessionFactory" p:dataSource-ref="dataSource" p:configLocation="/WEB-INF/mybatis-config.xml" class="org.mybatis.spring.SqlSessionFactoryBean"/>
+	
+	<!-- sqlSession 설정 -->
+	<bean id="sqlSession" c:sqlSessionFactory-ref="sqlSessionFactory" class="org.mybatis.spring.SqlSessionTemplate"/>
+	
+	<!-- DAO 설정 -->
+	<bean id="checkListDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.CheckListDAOImpl"/>
+	<bean id="contentsTagsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.ContentsTagsDAOImpl"/>
+	<bean id="dounorSavesDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.DounorSavesDAOImpl"/>
+	<bean id="dounorsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.DounorsDAOImpl"/>
+	<bean id="followDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.FollowDAOImpl"/>
+	<bean id="foodGradesDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.FoodGradesDAOImpl"/>
+	<bean id="hlogCommentsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.HlogCommentsDAOImpl"/>
+	<bean id="hlogsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.HlogsDAOImpl"/>
+	<bean id="hlogSpotsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.HlogSpotsDAOImpl"/>
+	<bean id="locationCheckListDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.LocationCheckListDAOImpl"/>
+	<bean id="locationsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.LocationsDAOImpl"/>
+	<bean id="menusDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.MenusDAOImpl"/>
+	<bean id="personnelsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.PersonnelsDAOImpl"/>
+	<bean id="reviewsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.ReviewsDAOImpl"/>
+	<bean id="servicesDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.ServicesDAOImpl"/>
+	<bean id="spotPicsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.SpotPicsDAOImpl"/>
+	<bean id="spotsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.SpotsDAOImpl"/>
+	<bean id="tagsDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.TagsDAOImpl"/>
+	<bean id="togethersDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.TogethersDAOImpl"/>
+	<bean id="tourGradesDAO" p:session-ref="sqlSession" class="org.yolo.holo.dao.TourGradesDAOImpl"/>
+	
+	<!-- Service 설정 -->
+	<bean id="checkListService" p:checkListDAO-ref="checkListDAO" class="org.yolo.holo.service.CheckListServiceImpl"/>
+	<bean id="contentsTagsService" p:contentsTagsDAO-ref="contentsTagsDAO" class="org.yolo.holo.service.ContentsTagsServiceImpl"/>
+	<bean id="dounorSavesService" p:dounorSavesDAO-ref="dounorSavesDAO" class="org.yolo.holo.service.DounorSavesServiceImpl"/>
+	<bean id="dounorsService" p:dounorsDAO-ref="dounorsDAO" p:dounorSavesDAO-ref="dounorSavesDAO" p:followDAO-ref="followDAO" p:hlogsDAO-ref="hlogsDAO"
+   		p:personnelsDAO-ref="personnelsDAO" p:reviewsDAO-ref="reviewsDAO" p:spotsDAO-ref="spotsDAO" class="org.yolo.holo.service.DounorsServiceImpl"/>
+	<bean id="followService" p:followDAO-ref="followDAO" class="org.yolo.holo.service.FollowServieImpl"/>
+	<bean id="foodGradesService" p:foodGradesDAO-ref="foodGradesDAO" class="org.yolo.holo.service.FoodGradesServiceImpl"/>
+	<bean id="hlogCommentsService" p:hlogCommentsDAO-ref="hlogCommentsDAO" p:paginateUtil-ref="paginateUtil" class="org.yolo.holo.service.HlogCommentsServiceImpl"/>
+ 	<bean id="hlogSpotsService" p:hlogSpotsDAO-ref="hlogSpotsDAO" class="org.yolo.holo.service.HlogSpotsServiceImpl"/>
+ 	<bean id="hlogsService" p:hlogsDAO-ref="hlogsDAO" p:paginateUtil-ref="paginateUtil" class="org.yolo.holo.service.HlogsServiceImpl"/>
+	<bean id="locationCheckListService" p:locationCheckListDAO-ref="locationCheckListDAO" class="org.yolo.holo.service.LocationCheckListServiceImpl"/>
+	<bean id="locationsService" p:locationsDAO-ref="locationsDAO" p:spotsDAO-ref="spotsDAO"  class="org.yolo.holo.service.LocationsServiceImpl"/>
+	<bean id="menusService" p:menusDAO-ref="menusDAO" class="org.yolo.holo.service.MenusServiceImpl"/>
+	<bean id="personnelsService" p:personnelsDAO-ref="personnelsDAO" class="org.yolo.holo.service.PersonnelsServiceImpl"/>
+	<bean id="reviewsService" p:reviewsDAO-ref="reviewsDAO" class="org.yolo.holo.service.ReviewsServiceImpl"/>
+	<bean id="servicesService" p:servicesDAO-ref="servicesDAO" class="org.yolo.holo.service.ServicesServiceImpl"/>
+	<bean id="spotPicsService" p:spotPicsDAO-ref="spotPicsDAO" class="org.yolo.holo.service.SpotPicsServiceImpl"/>
+	<!-- 은서 food list 추가 -->
+	<bean id="spotsService" class="org.yolo.holo.service.SpotsServiceImpl"
+		p:spotsDAO-ref="spotsDAO" p:paginateUtil-ref="paginateUtil"
+		p:dounorSavesDAO-ref="dounorSavesDAO" p:tourGradesDAO-ref="tourGradesDAO"
+		p:tagsDAO-ref="tagsDAO" p:foodGradesDAO-ref="foodGradesDAO"
+		p:spotPicsDAO-ref="spotPicsDAO" p:menusDAO-ref="menusDAO"
+		p:servicesDAO-ref="servicesDAO" p:contentsTagsDAO-ref="contentsTagsDAO"
+		p:reviewsDAO-ref="reviewsDAO" p:togethersDAO-ref="togethersDAO"/>
+	<bean id="tagsService" p:tagsDAO-ref="tagsDAO" class="org.yolo.holo.service.TagsServiceImpl"/>
+	<bean id="togethersService" p:togethersDAO-ref="togethersDAO" p:personnelsDAO-ref="personnelsDAO" class="org.yolo.holo.service.TogethersServiceImpl" p:paginateUtil-ref="paginateUtil" p:tagsDAO-ref="tagsDAO"/>
+	<bean id="tourGradesService" p:tourGradesDAO-ref="tourGradesDAO" class="org.yolo.holo.service.TourGradesServiceImpl"/>
+	
+	
+	<!-- Util 설정 -->	
+	<!-- 은서 : food list -->
+	<bean id="paginateUtil" class="org.yolo.holo.util.PaginateUtil"/>
+	<bean id="fileRenameUtil" class="org.yolo.holo.util.FileRenameUtil"/>
+
+</beans>	

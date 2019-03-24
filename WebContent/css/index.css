@@ -1,0 +1,716 @@
+		body{
+            font: 16px "Kakao","Noto Sans KR","나눔고딕",NanumGothic,"맑은고딕","Malgun Gothic",
+            "돋움",Dotum,"Helvetica Neue",Helvetica,AppleSDGothicNeo,sans-serif,"Apple Color Emoji",
+            "Segoe UI Emoji",NotoColorEmoji,"Segoe UI Symbol","Android Emoji",EmojiSymbols;
+        }
+
+        #heroImage{
+            width: 100%;
+            height: 400px;
+            background-image: url("/../img/main.jpg");
+            background-size: 100% 550px;
+            margin-top: 70px;
+        }
+        #heroImage .wrapAll {
+            width: 1080px;
+            height: 400px;
+            position: relative;
+            margin: auto;
+        }
+        #heroImage .title {
+            width: 450px;
+            height: 100px;
+            position: absolute;
+            text-align: center;
+            line-height: 20px;
+            font-size: 40px;
+            left: 0;
+            top: 90px;
+            color: white;
+            text-shadow: 0 0 5px #fff;
+            font-family: 'Lobster', cursive;
+            /*margin: 100px 0 0 300px;*/
+        }
+        #heroImage .subtitle {
+            width: 550px;
+            height: 80px;
+            position: absolute;
+            text-align: center;
+            font-size: 23px;
+            left: 30px;
+            top: 150px;
+            color: #FFB300;
+            text-shadow: 2px 2px 3px #0277BD;
+            /*font-weight: bold;*/
+        }
+        #heroImage .hice {
+            width: 320px;
+            height: 150px;
+            position: absolute;
+            right: 0;
+            top: 80px;
+            color: black;
+        }
+        .hice>img{
+            opacity: .7;
+        }
+        .icecream {
+            width: 110px;
+            height: 150px;
+            position: absolute;
+            right: 25px;
+            bottom: 0;
+        }
+
+        .con1, .con2 {
+            width: 170px;
+            height: 20px;
+            position: absolute;
+        }
+        .con1 {
+            right: 100px;
+            bottom: 20px;
+        }
+        .con2 {
+            right: 70px;
+            bottom: 0;
+        }
+        .con3 {
+            width: 50px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            font-weight: bold;
+        }
+
+        .wrap {
+            width: 1080px;
+            height: 150px;
+            background-color: rgba(255, 255, 255, 0.4);
+            position: absolute;
+            bottom: 0;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+
+        .continentBox {
+            width: 1080px;
+            height: 150px;
+            float: left;
+        }
+        .continent {
+            height: 150px;
+            float: left;
+            text-align: center;
+            background-size: 100px 100px;
+            background-repeat: no-repeat;
+            background-position: center 10px;
+        }
+        .continent>a {
+            width: 215px;
+            height: 150px;
+            corsor: none;
+        }
+        .continent .korea {
+            width: 215px;
+            border-right: 1px solid #424242;
+            background-image: url("/../img/korea.png");
+        }
+        .continent .asia {
+            width: 215px;
+            border-right: 1px solid #424242;
+            background-image: url("/../img/asia.png");
+        }
+        .continent .southAsia {
+            width: 215px;
+            border-right: 1px solid #424242;
+            background-image: url("/../img/southAsia.png");
+        }
+        .continent .europe {
+            width: 215px;
+            border-right: 1px solid #424242;
+            background-image: url("/../img/europe.png");
+        }
+        .continent .america {
+            width: 216px;
+            background-image: url("/../img/america.png");
+        }
+        .continent .name {
+            text-align: center;
+            bottom: 0;
+            color: #FDD835;
+            line-height: 260px;
+            transition: .1s ease;
+        }
+        .continent .name:active {
+            font-size: 20px;
+        }
+
+
+        .location {
+            width: 1080px;
+            height: 150px;
+            position: absolute;
+            top:150px;
+            z-index: 2;
+            /*padding-left: 10px;*/
+            background-color: white;
+            display: none;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .regionWrap {
+            width: 216px;
+            height: 150px;
+            float: left;
+            /*background-color: #424242;*/
+        }
+        .region {
+            width: 216px;
+            height: 50px;
+        }
+        .region>a {
+            width: 216px;
+            height: 50px;
+            text-decoration: none;
+            padding-top: 10px;
+            padding-left: 10px;
+            color: #3E2723;
+            display: block;
+            /*text-align: center;*/
+        }
+        .region>a>img {
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 2px #424242;
+            /*border: 1px solid #424242;*/
+            border-radius: 30px;
+        }
+        .region a:hover {
+            font-size: 20px;
+            text-shadow: 0 0 3px #BCAAA4;
+        }
+        .wrap:hover .location {
+            display: block;
+        }
+        .continent:hover {
+            cursor: pointer;
+        }
+
+        .region span, .region img {
+            vertical-align: middle;
+        }
+
+        #contentWrap {
+            width: 1080px;
+            height: 1150px;
+            position: relative;
+            margin: auto;
+        }
+
+        .contents {
+            width: 1080px;
+            height: 400px;
+            margin-top: 50px;
+            /*margin-top: 50px;*/
+            /*background-color: orange;*/
+        }
+        #navList {
+            width: 150px;
+            height: 20px;
+            /*position: absolute;*/
+            margin: 25px auto;
+            color: #D7CCC8;
+            /*background-color: red;*/
+        }
+        #navList li {
+            float: left;
+            margin-right: 30px;
+            text-align: center;
+        }
+        .on {
+            color: #8D6E63;
+        }
+
+
+        .box {
+            width: 1005px;
+            height: 280px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            /*background-color: pink;*/
+        }
+
+        .spot {
+            width: 960px;
+            height: 60px;
+            margin: auto;
+            line-height: 60px;
+            position: relative;
+        }
+        .spot li {
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            list-style: none;
+            display: block;
+            float: left;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 10px;
+            /*background-color: pink;*/
+        }
+        .spot .hBox {
+        	display: none;
+        }
+        .spot>li:hover {
+            cursor: pointer;
+        }
+        .spot .plus {
+            font-family: "Kakao", "sans-serif";
+            width: 80px;
+            height: 40px;
+            text-align: center;
+            font-size: 17px;
+            position: absolute;
+            line-height: 40px;
+            font-weight: bold;
+            right: 0;
+            text-decoration: none;
+            border: 3px solid #795548;
+            border-radius: 10px;
+            color: #795548;
+            transition: .4s ease;
+        }
+        .spot .plus:hover {
+        	cursor: pointer;
+        	color: white;
+        	background-color: #795548;
+        }
+        .spot .restPlus, .spot .hPlus {
+            display: none;
+        }
+        .color {
+            border-radius: 50px;
+            background-color: #8D6E63;
+            text-shadow: 2px 2px 2px #424242;
+            color: white;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .boxes {
+            width: 3015px;
+            height: 280px;
+            position: absolute;
+            left: 0;
+            transition: .2s ease;
+        }
+        .conOne {
+            width: 290px;
+            height: 280px;
+            margin-right: 22.5px;
+            margin-left: 22.5px;
+        }
+        .conOne:hover {
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+        .photoBox {
+            width: 290px;
+            height: 200px;
+            position: relative;
+        }
+        .photoBox img:hover {
+            cursor: pointer;
+        }
+        .boxM {
+            position: relative;
+            width: 288px;
+            height: 79px;
+            border-left: 1px solid #A1887F;
+            border-bottom: 1px solid #A1887F;
+            border-right: 1px solid #A1887F;
+            background-color: white;
+        }
+        .boxM a {
+            color: #000;
+            text-decoration: none;
+        }
+        .hashBox {
+        	width: 290px;
+        	height: 30px;
+        	position: absolute;
+        	bottom: 0;
+        	left: 0;        	
+        }
+        .hash {
+            padding: 1px 5px;
+            margin-left: 7px;
+            margin-right: 3px;
+            width: 75px;
+            height: 20px;
+            background-color: #A1887F;
+            border-radius: 20px;
+            font-size: 15px;
+            text-align: center;
+            text-shadow: 1px 1px 1px #424242;
+            line-height: 20px;
+            color: white;
+            float: left;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .h2 {
+            right: 99px;
+        }
+        .h3 {
+            right: 193px;
+        }
+
+        .userPhoto {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        .spotName {
+            position: absolute;
+            width: 80px;
+            height: 25px;
+            top: 10px;
+            left: 55px;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .restaurantRealWon{
+            position: absolute;
+            width: 100px;
+            height: 25px;
+            bottom:0;
+            left: 100px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .restaurantRealWonNum{
+            display: none;
+        }
+        .realWon {
+            float: right;
+        }
+        .coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: 135px;
+            top: 5px;
+        }
+        .nickname {
+            position: absolute;
+            width: 60px;
+            height: 20px;
+            left: 10px;
+            bottom: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .hiceOne {
+            position: absolute;
+            width: 60px;
+            height: 70px;
+            top: 6px;
+            right: 35px;
+        }
+        .like {
+            position: absolute;
+            width: 55px;
+            height: 20px;
+            right: 0;
+            bottom: 2px;
+        }
+        .like img:hover {
+            cursor: pointer;
+        }
+        .scrap {
+            position: absolute;
+            width: 55px;
+            height: 20px;
+            right: 0;
+            top: 2px;
+        }
+        .scrap img:hover {
+            cursor: pointer;
+        }
+
+        .conBox {
+            width: 290px;
+            height: 280px;
+            background-color: #C69963;
+            float: left;
+        }
+
+        .btn {
+            width: 60px;
+            height: 100px;
+            font-size: 30px;
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            outline: none;
+        }
+        .btn:hover {
+            cursor: pointer;
+        }
+        .btn:active {
+            font-size: 20px;
+            transition: .2s ease;
+        }
+        .leftBtn{
+            left: 0;
+            top: 130px;
+        }
+        .rightBtn{
+            right: 0;
+            top: 130px;
+        }
+        .attractionBoxes {
+            display: block;
+        }
+        .restaurantBoxes {
+            display: none;
+        }
+        .hLogBoxes {
+            display: none;
+        }
+
+        #themeWrap {
+            width: 960px;
+            height: 460px;
+            margin: auto;
+        }
+        .themeTitle {
+            width: 960px;
+            height: 60px;
+            font-size: 20px;
+            text-indent: 20px;
+            font-weight: bold;
+        }
+        .theme {
+            width: 960px;
+            height: 360px;
+            background-color: black;
+        }
+        .theme img {
+            display: block;
+            float: left;
+        }
+        .boxOne {
+            width: 240px;
+            height: 180px;
+            float: left;
+            position: relative;
+        }
+        .cover {
+            width:240px;
+            height:180px;
+            position:absolute;
+            text-align: center;
+            top:0;
+            left:0;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+        }
+        .cover span {
+            color: white;
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 180px;
+        }
+        .boxOne:hover .cover{
+            display: block;
+            /*cursor: pointer;*/
+            font: 16px "Kakao","Noto Sans KR","나눔고딕",NanumGothic,"맑은고딕","Malgun Gothic",
+            "돋움",Dotum,"Helvetica Neue",Helvetica,AppleSDGothicNeo,sans-serif,"Apple Color Emoji",
+            "Segoe UI Emoji",NotoColorEmoji,"Segoe UI Symbol","Android Emoji",EmojiSymbols;
+        }
+
+        #togetherWrap {
+            width: 1080px;
+            height: 200px;
+            position: absolute;
+        }
+        .togetherTitle {
+            width: 960px;
+            height: 60px;
+            font-size: 20px;
+            text-indent: 20px;
+            font-weight: bold;
+            margin: auto;
+        }
+
+        .together {
+            width: 1000px;
+            height: 100px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .togetherBox {
+            width: 3000px;
+            height: 100px;
+            position: absolute;
+            transition: .2s ease;
+            left: 0;
+            /*background-color: red;*/
+        }
+        @charset "UTF-8";
+
+
+        .togeBox {
+            width: 458px;
+            height: 98px;
+            float: left;
+            border: 1px solid #A1887F;
+            position: relative;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .togeBox:hover {
+            width: 456px;
+            height: 96px;
+            border: 2px solid #A1887F;
+            box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+        .togeBox .image {
+            margin-top: 8px;
+            margin-left: 6px;
+            width: 100px;
+            height: 76px;
+        }
+        .togeBox .date {
+            position: absolute;
+            width: 200px;
+            height: 25px;
+            top: 10px;
+            left: 115px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .togeBox .time {
+        	position: absolute;
+   			width: 200px;
+    		height: 25px;
+    		top: 10px;
+    		left: 225px;
+    		font-size: 13px;
+    		font-weight: bold;
+        }
+        .togeBox .siren {
+            position: absolute;
+            right:8px;
+            top: 5px;
+        }
+        .togeBox .siren:hover{
+            transform: scale(1.1);
+        }
+        .togeBox .siren:active{
+            transform: scale(.9);
+        }
+        .togeBox .tag {
+            position:relative;
+   			float:left;
+    		padding: 1px 8px;
+    		border-radius: 20px;
+    		font-size: 12px;
+    		text-decoration: none;
+    		color: #0D47A1;
+    		max-width: 70px;
+    		height: 20px;
+    		line-height: 20px;
+    		overflow: hidden;
+    		text-overflow: ellipsis;
+    		white-space: nowrap;
+    		font-weight:bold;
+    		display:block;
+        }
+        .togeBox .tag a {
+            color: blue;
+            text-decoration: none;
+        }
+        .floatTag {
+   			position:absolute;
+   			width:270px;
+   			height:20px;
+   			bottom:5px;
+   			left:120px;
+}
+        .togeBox .content {
+            position: absolute;
+            width: 260px;
+            padding: 5px 5px;
+            font-size: 12px;
+            top: 25px;
+            left: 110px;
+            color: black;
+        }
+        .togeBox .personnel {
+            position: absolute;
+            width: 35px;
+            height: 20px;
+            font-size: 10px;
+            line-height: 20px;
+            bottom: 20px;
+            right: 0;
+        }
+        .togeBox .gender {
+            position: absolute;
+            width: 30px;
+            height: 20px;
+            font-size: 10px;
+            bottom: 35px;
+            right:35px;
+        }
+        .togeBox .gender img {
+            width: 30px;
+            height: 30px;
+        }
+        .togeBox .finish {
+            position: absolute;
+            width: 60px;
+            height: 18px;
+            font-size: 15px;
+            bottom: 1px;
+            right: 1px;
+            color: #117700;
+            text-align: center;
+            line-height: 18px;
+            border-radius: 15px;
+        }
+        #navList2 {
+            width: 150px;
+            height: 20px;
+            /*position: absolute;*/
+            margin: 25px auto;
+            color: #D7CCC8;
+            /*background-color: red;*/
+        }
+        #navList2 li {
+            float: left;
+            margin-right: 30px;
+            text-align: center;
+        }
+        .leftBtn2 {
+            top: 60px;
+            left: 0;
+        }
+        .rightBtn2 {
+            top: 60px;
+            right: 0;
+        }

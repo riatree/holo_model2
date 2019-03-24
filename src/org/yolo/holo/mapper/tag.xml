@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="tag">
+
+	<select id="selectTag" parameterType="int" resultType="Tag">
+		SELECT s.no spotNo, s.name spotName,
+        	c.no, c.contents_no contentsNo, c.contents_type contentsType, c.no_tag noTag,
+        	t.no,  t.name name, t.tag_no tagNo   
+     	FROM spot s, contentstag c, tag t
+      	WHERE s.no = c.contents_no
+      	AND c.no_tag = t.no AND contents_type ='S' AND contents_no = #{no}
+	</select>
+
+	<select id="selectKeyword" resultType="Tag"
+		parameterType="String">
+		SELECT no, name, tag_no tagNo, type, regdate
+		FROM tag
+		WHERE name LIKE #{name}
+	</select>
+
+	<insert id="insert" parameterType="Tag">
+		INSERT INTO TAG(no, name, tag_no, type, regdate)
+		VALUES(tag_seq.nextval, #{name}, #{tagNo}, 'S', systimestamp);
+	</insert>
+
+</mapper>
